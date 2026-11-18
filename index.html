@@ -269,6 +269,31 @@ header:before{animation:falahAura 7s ease-in-out infinite alternate;}
 @keyframes falahAura{from{box-shadow:0 0 45px #078cff20;}to{box-shadow:0 0 100px #078cff65;}}
 @media(prefers-reduced-motion:reduce){.logo,header h1,header p,header:before,header:after{animation:none;}}
 
+
+/* FALAH SUBSCRIPTION PRICES */
+.prices-section{margin:30px auto;padding:0 14px;max-width:1100px}
+.prices-toggle{width:100%;padding:17px;border:1px solid #38c5ff;border-radius:14px;background:linear-gradient(120deg,#0566d8,#078cff,#123d85);color:#fff;font-size:21px;font-weight:900;cursor:pointer;box-shadow:0 8px 25px #078cff35}
+.prices-panel{display:none;margin-top:18px}
+.prices-panel.open{display:block}
+.price-plan{margin:18px 0;padding:17px;border:1px solid #1c4d7b;border-radius:16px;background:linear-gradient(145deg,#101f36,#071326)}
+.price-plan h3{text-align:center;color:#38c5ff;margin:0 0 15px;font-size:20px}
+.price-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.price-option{min-width:0;padding:16px 8px;border:1px solid #078cff;border-radius:13px;background:linear-gradient(145deg,#102d50,#08182d);color:#fff;cursor:pointer;text-align:center;transition:.2s}
+.price-option:active,.price-option:hover{transform:translateY(-3px);box-shadow:0 5px 18px #078cff55}
+.price-option strong{display:block;color:#fff;font-size:18px;margin-bottom:8px}
+.price-option .iqd{display:block;color:#38c5ff;font-weight:900;font-size:17px}
+.price-option .usd{display:block;color:#b9d9ff;font-size:14px;margin-top:5px}
+.order-modal{display:none;position:fixed;inset:0;z-index:9999;background:#000c;padding:18px;overflow:auto;align-items:center;justify-content:center}
+.order-modal.open{display:flex}
+.order-box{width:100%;max-width:440px;background:#101f36;border:1px solid #078cff;border-radius:18px;padding:20px;color:#fff;position:relative}
+.order-box h3{text-align:center;color:#38c5ff;margin:0 0 15px}
+.order-box label{display:block;margin:12px 0 6px;font-weight:bold}
+.order-box input,.order-box select{width:100%;padding:12px;border:1px solid #315477;border-radius:9px;background:#071326;color:#fff;font-size:16px;box-sizing:border-box}
+.order-summary{background:#071326;border-radius:10px;padding:12px;line-height:1.9;margin:12px 0}
+.order-submit{width:100%;border:0;border-radius:10px;padding:14px;background:#078cff;color:#fff;font-size:17px;font-weight:bold;cursor:pointer;margin-top:12px}
+.order-close{position:absolute;left:12px;top:10px;background:none;border:0;color:#fff;font-size:25px;cursor:pointer}
+@media(max-width:380px){.price-grid{gap:8px}.price-option{padding:13px 5px}.price-option strong{font-size:16px}}
+
 </style>
 </head>
 <body>
@@ -376,7 +401,57 @@ header:before{animation:falahAura 7s ease-in-out infinite alternate;}
 </div>
 
 
+
 </div>
+
+<section class="prices-section" id="subscription-prices">
+<button class="prices-toggle" type="button" onclick="toggleSubscriptionPrices()">أسعار الاشتراك</button>
+<div class="prices-panel" id="pricesPanel">
+
+<div class="price-plan">
+<h3>الباقة العادية</h3>
+<div class="price-grid">
+<button class="price-option" onclick="selectSubscription('العادية','شهر',5000)"><strong>شهر</strong><span class="iqd">5,000 د.ع</span><span class="usd">$2.94</span></button>
+<button class="price-option" onclick="selectSubscription('العادية','3 أشهر',10000)"><strong>3 أشهر</strong><span class="iqd">10,000 د.ع</span><span class="usd">$5.88</span></button>
+<button class="price-option" onclick="selectSubscription('العادية','6 أشهر',15000)"><strong>6 أشهر</strong><span class="iqd">15,000 د.ع</span><span class="usd">$8.82</span></button>
+<button class="price-option" onclick="selectSubscription('العادية','سنة',25000)"><strong>سنة</strong><span class="iqd">25,000 د.ع</span><span class="usd">$14.71</span></button>
+</div>
+</div>
+
+<div class="price-plan">
+<h3>الباقة المفتوحة</h3>
+<div class="price-grid">
+<button class="price-option" onclick="selectSubscription('المفتوحة','شهر',10000)"><strong>شهر</strong><span class="iqd">10,000 د.ع</span><span class="usd">$5.88</span></button>
+<button class="price-option" onclick="selectSubscription('المفتوحة','3 أشهر',20000)"><strong>3 أشهر</strong><span class="iqd">20,000 د.ع</span><span class="usd">$11.76</span></button>
+<button class="price-option" onclick="selectSubscription('المفتوحة','6 أشهر',25000)"><strong>6 أشهر</strong><span class="iqd">25,000 د.ع</span><span class="usd">$14.71</span></button>
+<button class="price-option" onclick="selectSubscription('المفتوحة','سنة',35000)"><strong>سنة</strong><span class="iqd">35,000 د.ع</span><span class="usd">$20.59</span></button>
+</div>
+</div>
+</div>
+</section>
+
+<div class="order-modal" id="orderModal" onclick="if(event.target===this)closeSubscriptionOrder()">
+<div class="order-box">
+<button class="order-close" type="button" onclick="closeSubscriptionOrder()">×</button>
+<h3>طلب اشتراك فلاح ستور</h3>
+<form id="subscriptionOrderForm" onsubmit="sendSubscriptionOrder(event)">
+<label for="customerName">اسم الزبون</label>
+<input id="customerName" type="text" required maxlength="80" placeholder="اكتب اسمك">
+<label for="customerPhone">رقم الهاتف</label>
+<input id="customerPhone" type="tel" required maxlength="20" placeholder="07xxxxxxxxx">
+<div class="order-summary" id="orderSummary"></div>
+<label for="paymentMethod">طريقة الدفع</label>
+<select id="paymentMethod" required>
+<option value="">اختر طريقة الدفع</option>
+<option value="زين كاش">زين كاش</option>
+<option value="ماستر كارد">ماستر كارد</option>
+<option value="رصيد آسيا سيل">رصيد آسيا سيل</option>
+</select>
+<button class="order-submit" type="submit">إرسال الطلب عبر واتساب</button>
+</form>
+</div>
+</div>
+
 </main>
 
 <section class="container tv-guide" id="tv-guide">
@@ -491,6 +566,67 @@ setTimeout(()=>button.textContent='نسخ الكود',2000);
 button.textContent='تعذر النسخ';
 }
 }
+
+
+// FALAH STORE SUBSCRIPTION ORDER
+const subscriptionWhatsApp = "9647822315395";
+let selectedSubscription = null;
+
+function toggleSubscriptionPrices(){
+  document.getElementById("pricesPanel").classList.toggle("open");
+}
+
+function selectSubscription(plan, duration, price){
+  selectedSubscription = {plan, duration, price};
+  const usd = (price / 1700).toFixed(2);
+  document.getElementById("orderSummary").innerHTML =
+    "<strong>الباقة:</strong> " + plan +
+    "<br><strong>المدة:</strong> " + duration +
+    "<br><strong>السعر:</strong> " + price.toLocaleString("en-US") +
+    " دينار عراقي ($" + usd + ")";
+  document.getElementById("orderModal").classList.add("open");
+}
+
+function closeSubscriptionOrder(){
+  document.getElementById("orderModal").classList.remove("open");
+}
+
+function sendSubscriptionOrder(event){
+  event.preventDefault();
+
+  if(!selectedSubscription){
+    alert("يرجى اختيار باقة ومدة الاشتراك أولاً");
+    return;
+  }
+
+  const name = document.getElementById("customerName").value.trim();
+  const phone = document.getElementById("customerPhone").value.trim();
+  const payment = document.getElementById("paymentMethod").value;
+
+  if(!name || !phone || !payment){
+    alert("يرجى إكمال جميع المعلومات");
+    return;
+  }
+
+  const price = selectedSubscription.price;
+  const usd = (price / 1700).toFixed(2);
+
+  const message =
+    "طلب اشتراك جديد - فلاح ستور\n" +
+    "اسم الزبون: " + name + "\n" +
+    "رقم الهاتف: " + phone + "\n" +
+    "الباقة: " + selectedSubscription.plan + "\n" +
+    "المدة: " + selectedSubscription.duration + "\n" +
+    "السعر: " + price.toLocaleString("en-US") + " دينار عراقي\n" +
+    "بالدولار: $" + usd + "\n" +
+    "طريقة الدفع: " + payment;
+
+  const url = "https://wa.me/" + subscriptionWhatsApp +
+    "?text=" + encodeURIComponent(message);
+
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
 </script>
 
 
