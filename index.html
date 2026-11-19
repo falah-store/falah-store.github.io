@@ -294,9 +294,64 @@ header:before{animation:falahAura 7s ease-in-out infinite alternate;}
 .order-close{position:absolute;left:12px;top:10px;background:none;border:0;color:#fff;font-size:25px;cursor:pointer}
 @media(max-width:380px){.price-grid{gap:8px}.price-option{padding:13px 5px}.price-option strong{font-size:16px}}
 
+
+/* FALAH STORE - Premium Top Slider */
+.falah-top-slider{
+  position:relative;
+  width:100%;
+  aspect-ratio:3712 / 1152;
+  overflow:hidden;
+  background:#050b16;
+  isolation:isolate;
+}
+.falah-slider-slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity 1s ease;
+  z-index:0;
+}
+.falah-slider-slide.active{
+  opacity:1;
+  z-index:1;
+}
+.falah-slider-slide img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1.06);
+  transition:transform 3s ease;
+}
+.falah-slider-slide.active img{
+  transform:scale(1);
+}
+@media(prefers-reduced-motion:reduce){
+  .falah-slider-slide,
+  .falah-slider-slide img{
+    transition:none;
+  }
+}
+
 </style>
 </head>
 <body>
+<section class="falah-top-slider" aria-label="عروض فلاح ستور">
+<div class="falah-slider-slide active"><img src="1.jpg" alt="FALAH STORE - عرض 1" fetchpriority="high"></div>
+<div class="falah-slider-slide"><img src="2.jpg" alt="FALAH STORE - عرض 2" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="3.jpg" alt="FALAH STORE - عرض 3" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="4.jpg" alt="FALAH STORE - عرض 4" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="5.jpg" alt="FALAH STORE - عرض 5" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="6.jpg" alt="FALAH STORE - عرض 6" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="7.jpg" alt="FALAH STORE - عرض 7" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="8.jpg" alt="FALAH STORE - عرض 8" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="9.jpg" alt="FALAH STORE - عرض 9" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="10.jpg" alt="FALAH STORE - عرض 10" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="11.jpg" alt="FALAH STORE - عرض 11" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="12.jpg" alt="FALAH STORE - عرض 12" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="13.jpg" alt="FALAH STORE - عرض 13" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="14.jpg" alt="FALAH STORE - عرض 14" loading="lazy"></div>
+</section>
 <header>
 <div class="logo">FALAH STORE</div>
 <h1>برامج فلاح ستور</h1>
@@ -638,6 +693,22 @@ function sendSubscriptionOrder(event){
 </span>
 <span class="whatsapp-label">تواصل مع الدعم</span>
 </a>
+
+
+<script>
+/* FALAH STORE - Premium Slider Auto Play */
+(() => {
+  const slides = document.querySelectorAll(".falah-slider-slide");
+  if (slides.length < 2) return;
+
+  let current = 0;
+  setInterval(() => {
+    slides[current].classList.remove("active");
+    current = (current + 1) % slides.length;
+    slides[current].classList.add("active");
+  }, 3000);
+})();
+</script>
 
 </body>
 </html>
