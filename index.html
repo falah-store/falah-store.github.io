@@ -252,6 +252,14 @@ transform:scale(1.1);
 0%,100%{transform:translateY(0);}
 50%{transform:translateY(-5px);}
 }
+@media(max-width:600px){
+  .falah-top-slider{
+    width:calc(100% - 16px);
+    min-height:125px;
+    margin:10px auto 20px;
+    border-radius:14px;
+  }
+}
 @media(prefers-reduced-motion:reduce){
 .whatsapp-icon,.whatsapp-icon::before{animation:none;}
 }
@@ -298,11 +306,17 @@ header:before{animation:falahAura 7s ease-in-out infinite alternate;}
 /* FALAH STORE - Premium Top Slider */
 .falah-top-slider{
   position:relative;
-  width:100%;
+  width:calc(100% - 28px);
+  max-width:1500px;
   aspect-ratio:3712 / 1152;
+  min-height:190px;
+  margin:18px auto 28px;
   overflow:hidden;
   background:#050b16;
   isolation:isolate;
+  border:1px solid #168cff88;
+  border-radius:22px;
+  box-shadow:0 12px 45px #007bff30,0 0 18px #078cff25;
 }
 .falah-slider-slide{
   position:absolute;
@@ -388,7 +402,298 @@ to{box-shadow:0 0 28px #078cffff}
 @media(prefers-reduced-motion:reduce){
 .device-glow{animation:none}
 }
-\n</style>
+\n
+/* PREMIUM FALAH STORE HERO */
+.premium-hero{
+  max-width:1250px;
+  min-height:420px;
+  margin:30px auto;
+  padding:55px 45px;
+  border:1px solid #1765a0;
+  border-radius:28px;
+  background:
+    radial-gradient(ellipse at 15% 15%,#087cff30,transparent 45%),
+    radial-gradient(ellipse at 85% 80%,#00baff20,transparent 40%),
+    linear-gradient(125deg,#071326,#0b1c32 55%,#06101f);
+  box-shadow:0 20px 65px #0008,0 0 35px #087cff18;
+}
+.hero-content{max-width:680px}
+.hero-badge{
+  color:#7bd1ff;
+  background:#087cff20;
+  border:1px solid #168cff70;
+  padding:9px 16px;
+  border-radius:30px;
+  display:inline-block;
+}
+.hero-tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}
+.hero-tags span{
+  color:#bce6ff;
+  background:#102b49;
+  border:1px solid #24547d;
+  border-radius:20px;
+  padding:7px 12px;
+  font-size:12px;
+}
+.hero-content h2{
+  font-size:clamp(34px,5.5vw,58px);
+  line-height:1.35;
+  margin:22px 0 14px;
+  letter-spacing:-1px;
+}
+.hero-content h2 span{
+  color:#39baff;
+  text-shadow:0 0 28px #078cff70;
+}
+.hero-content p{
+  color:#c1d3e8;
+  font-size:16px;
+  line-height:2;
+  max-width:570px;
+}
+.hero-actions{gap:13px;margin-top:28px}
+.hero-button,.hero-secondary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  transition:.25s ease;
+}
+.hero-button{
+  background:linear-gradient(110deg,#087cff,#16baff);
+  box-shadow:0 8px 28px #078cff55;
+}
+.hero-button:hover,.hero-secondary:hover{transform:translateY(-3px)}
+.hero-secondary{background:#ffffff08;border-color:#3984bd}
+.hero-trust{
+  display:flex;
+  flex-wrap:wrap;
+  gap:18px;
+  margin-top:27px;
+  color:#9fc4e5;
+  font-size:12px;
+}
+.hero-trust span::first-letter{color:#35d69a}
+.hero-logo-card{
+  background:linear-gradient(145deg,#163c60,#08172b);
+  box-shadow:0 0 75px #078cff45,0 20px 45px #0008;
+}
+.hero-logo-card img{object-fit:contain;background:#071326}
+.hero-logo-card small{
+  display:block;
+  color:#b7d9f5;
+  margin-top:12px;
+  font-size:12px;
+}
+@media(max-width:700px){
+  .premium-hero{
+    margin:15px 10px;
+    padding:28px 18px;
+    min-height:0;
+    border-radius:20px;
+    gap:12px;
+  }
+  .hero-content{width:100%}
+  .hero-tags{justify-content:center}
+  .hero-content h2{font-size:34px;line-height:1.45}
+  .hero-content p{font-size:14px;line-height:1.9}
+  .hero-actions{flex-direction:column}
+  .hero-button,.hero-secondary{width:100%;box-sizing:border-box}
+  .hero-trust{justify-content:center;gap:10px}
+  .hero-art{height:220px}
+}
+
+
+/* FALAH STORE PREMIUM SUBSCRIPTION PRICES */
+.prices-section{
+  max-width:1150px;
+  margin:55px auto;
+  padding:0 16px;
+}
+.prices-toggle{
+  position:relative;
+  overflow:hidden;
+  padding:20px;
+  border:1px solid #42baff;
+  border-radius:18px;
+  background:linear-gradient(110deg,#063b78,#087cff,#0750a0);
+  box-shadow:0 10px 35px #087cff35;
+  font-size:23px;
+  letter-spacing:.3px;
+  transition:.25s;
+}
+.prices-toggle:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 40px #087cff55;
+}
+.prices-panel{
+  margin-top:22px;
+  gap:20px;
+}
+.prices-panel.open{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;
+}
+.price-plan{
+  position:relative;
+  margin:0;
+  padding:25px 20px;
+  border:1px solid #245783;
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 50% 0%,#087cff20,transparent 55%),
+    linear-gradient(145deg,#101f36,#071326);
+  box-shadow:0 15px 35px #0005;
+  transition:.3s ease;
+}
+.price-plan:hover{
+  transform:translateY(-5px);
+  border-color:#39baff;
+  box-shadow:0 18px 40px #087cff20;
+}
+.price-plan:nth-child(2){
+  border-color:#168cff;
+  background:
+    radial-gradient(circle at 50% 0%,#078cff35,transparent 60%),
+    linear-gradient(145deg,#102b4b,#071326);
+}
+.price-plan h3{
+  font-size:23px;
+  padding-bottom:15px;
+  border-bottom:1px solid #ffffff18;
+}
+.price-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:13px;
+}
+.price-option{
+  min-height:115px;
+  padding:18px 10px;
+  border:1px solid #245b8e;
+  border-radius:17px;
+  background:linear-gradient(145deg,#12365c,#09182c);
+  box-shadow:inset 0 1px #ffffff0c;
+  transition:transform .22s,border-color .22s,box-shadow .22s;
+}
+.price-option:hover{
+  transform:translateY(-5px) scale(1.02);
+  border-color:#48c3ff;
+  box-shadow:0 10px 25px #078cff30;
+}
+.price-option strong{
+  font-size:17px;
+  color:#e8f5ff;
+}
+.price-option .iqd{
+  margin-top:8px;
+  font-size:20px;
+  color:#48c5ff;
+  text-shadow:0 0 15px #078cff40;
+}
+.price-option .usd{
+  color:#9dbbd9;
+  font-size:13px;
+}
+@media(max-width:650px){
+  .prices-section{margin:35px auto;padding:0 11px}
+  .prices-panel.open{grid-template-columns:1fr}
+  .price-plan{padding:20px 14px}
+  .prices-toggle{font-size:20px}
+}
+@media(max-width:380px){
+  .price-grid{gap:9px}
+  .price-option{min-height:105px;padding:13px 5px}
+  .price-option .iqd{font-size:17px}
+}
+
+
+/* FALAH STORE PREMIUM FEATURES UPGRADE */
+#features{
+  position:relative;
+  overflow:hidden;
+  border:1px solid #1764a0;
+  background:
+    radial-gradient(ellipse at 50% 0%,#087cff24,transparent 65%),
+    linear-gradient(145deg,#0c1d34,#060e1c);
+  box-shadow:0 18px 50px #0005, inset 0 1px #ffffff0a;
+}
+#features .info-heading{
+  color:#63c6ff;
+  text-align:center;
+  margin-bottom:32px;
+}
+#features .info-heading::after{
+  content:"";
+  display:block;
+  width:65px;
+  height:3px;
+  margin:14px auto 0;
+  border-radius:10px;
+  background:linear-gradient(90deg,transparent,#36baff,transparent);
+}
+#features .features-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+#features .feature-item{
+  position:relative;
+  overflow:hidden;
+  min-width:0;
+  padding:27px 18px;
+  border:1px solid #2875ad66;
+  border-radius:20px;
+  background:linear-gradient(145deg,#142d4b,#091629 75%);
+  box-shadow:0 10px 28px #0003,inset 0 1px #ffffff0c;
+  transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease;
+}
+#features .feature-item::before{
+  content:"";
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:54px;
+  height:54px;
+  margin:0 auto 17px;
+  border:1px solid #36baff55;
+  border-radius:17px;
+  background:linear-gradient(145deg,#087cff35,#0b2440);
+  box-shadow:0 0 22px #078cff20;
+  font-size:27px;
+}
+#features .feature-item:nth-child(1)::before{content:"✦"}
+#features .feature-item:nth-child(2)::before{content:"↻"}
+#features .feature-item:nth-child(3)::before{content:"▣"}
+#features .feature-item:nth-child(4)::before{content:"◉"}
+#features .feature-item:nth-child(5)::before{content:"⇩"}
+#features .feature-item:nth-child(6)::before{content:"▶"}
+#features .feature-item h3{
+  color:#e5f4ff;
+  font-size:18px;
+  margin:0 0 11px;
+}
+#features .feature-item p{
+  color:#afc5dc;
+  font-size:14px;
+  line-height:1.9;
+}
+#features .feature-item:hover{
+  transform:translateY(-7px);
+  border-color:#42baff;
+  box-shadow:0 16px 35px #087cff24,0 0 18px #078cff12;
+}
+@media(max-width:800px){
+  #features .features-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+}
+@media(max-width:420px){
+  #features .features-grid{gap:10px}
+  #features .feature-item{padding:21px 11px;border-radius:16px}
+  #features .feature-item h3{font-size:16px}
+  #features .feature-item p{font-size:13px}
+  #features .feature-item::before{width:47px;height:47px;font-size:24px}
+}
+
+</style>
 </head>
 <body>
 <section class="falah-top-slider" aria-label="عروض فلاح ستور">
@@ -415,19 +720,30 @@ to{box-shadow:0 0 28px #078cffff}
 
 <section class="premium-hero" id="premium-hero">
   <div class="hero-content">
-    <span class="hero-badge">✦ أهلاً بك في عالم فلاح ستور</span>
-    <h2>ترفيهك المفضل<br><span>يبدأ من هنا</span></h2>
-    <p>اكتشف تطبيقاتنا واستمتع بتجربة مميزة على الشاشات والهواتف والحاسوب.</p>
-    <div class="hero-actions">
-      <a href="#apps" class="hero-button">اكتشف برامجنا ←</a>
-      <a href="#video" class="hero-secondary">شاهد الفيديو</a>
+    <span class="hero-badge">✦ FALAH STORE يقدم لك تجربة ترفيه مختلفة</span>
+
+    <div class="hero-tags">
+      <span>● مباشر</span>
+      <span>4K ULTRA HD</span>
+      <span>بدون إعلانات مزعجة</span>
     </div>
-    <div class="hero-features">
-      <div><strong>FALAH</strong><small>عالم من الترفيه</small></div>
-      <div><strong>جميع الأجهزة</strong><small>شاشات وهواتف وحاسوب</small></div>
-      <div><strong>بمكان واحد</strong><small>تطبيقاتنا بين يديك</small></div>
+
+    <h2>وجهتك الأولى<br><span>للترفيه العربي</span></h2>
+
+    <p>شاهد القنوات المباشرة والأفلام والمسلسلات وأهم بطولات كرة القدم، واستمتع بتجربة ترفيهية على أجهزتك المفضلة.</p>
+
+    <div class="hero-actions">
+      <a href="https://wa.me/9647803734579?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D9%81%D9%84%D8%A7%D8%AD%20%D8%B3%D8%AA%D9%88%D8%B1%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AD%D8%B5%D9%88%D9%84%20%D8%B9%D9%84%D9%89%20%D8%AA%D8%AC%D8%B1%D8%A8%D8%A9%20%D9%85%D8%AC%D8%A7%D9%86%D9%8A%D8%A9%20%D9%84%D9%85%D8%AF%D8%A9%207%20%D8%A3%D9%8A%D8%A7%D9%85" class="hero-button" target="_blank" rel="noopener noreferrer">ابدأ تجربة مجانية لمدة 7 أيام ←</a>
+      <a href="#subscription-prices" class="hero-secondary">استكشف الباقات</a>
+    </div>
+
+    <div class="hero-trust">
+      <span>✓ لا حاجة لبطاقة ائتمان</span>
+      <span>✓ تفعيل فوري</span>
+      <span>✓ مساعدة مباشرة</span>
     </div>
   </div>
+
   <div class="hero-art">
     <div class="hero-orbit orbit-one"></div>
     <div class="hero-orbit orbit-two"></div>
@@ -435,6 +751,7 @@ to{box-shadow:0 0 28px #078cffff}
       <img src="شعار.png" alt="شعار فلاح ستور">
       <strong>FALAH STORE</strong>
       <span>SMART ENTERTAINMENT</span>
+      <small>الترفيه بين يديك</small>
     </div>
   </div>
 </section>
