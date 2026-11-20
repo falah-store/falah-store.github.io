@@ -270,257 +270,186 @@ header:before{animation:falahAura 7s ease-in-out infinite alternate;}
 @media(prefers-reduced-motion:reduce){.logo,header h1,header p,header:before,header:after{animation:none;}}
 
 
-/* FALAH STORE - ANIMATED BLUE BACKGROUND */
-body{
-background-image:
-radial-gradient(ellipse at 15% 25%,rgba(0,140,255,.16),transparent 38%),
-radial-gradient(ellipse at 85% 65%,rgba(0,195,255,.12),transparent 40%),
-radial-gradient(ellipse at 50% 100%,rgba(0,90,255,.13),transparent 45%);
-background-size:200% 200%;
-animation:falahBlueBackground 18s ease-in-out infinite alternate;
-}
-.premium-hero{
-background-size:200% 200%;
-animation:falahHeroLight 12s ease-in-out infinite alternate;
-}
-@keyframes falahBlueBackground{
-0%{background-position:0% 0%;}
-50%{background-position:100% 55%;}
-100%{background-position:30% 100%;}
-}
-@keyframes falahHeroLight{
-from{background-position:0% 50%;}
-to{background-position:100% 50%;}
-}
-@media(prefers-reduced-motion:reduce){
-body,.premium-hero{animation:none;}
-}
+/* FALAH SUBSCRIPTION PRICES */
+.prices-section{margin:30px auto;padding:0 14px;max-width:1100px}
+.prices-toggle{width:100%;padding:17px;border:1px solid #38c5ff;border-radius:14px;background:linear-gradient(120deg,#0566d8,#078cff,#123d85);color:#fff;font-size:21px;font-weight:900;cursor:pointer;box-shadow:0 8px 25px #078cff35}
+.prices-panel{display:none;margin-top:18px}
+.prices-panel.open{display:block}
+.price-plan{margin:18px 0;padding:17px;border:1px solid #1c4d7b;border-radius:16px;background:linear-gradient(145deg,#101f36,#071326)}
+.price-plan h3{text-align:center;color:#38c5ff;margin:0 0 15px;font-size:20px}
+.price-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.price-option{min-width:0;padding:16px 8px;border:1px solid #078cff;border-radius:13px;background:linear-gradient(145deg,#102d50,#08182d);color:#fff;cursor:pointer;text-align:center;transition:.2s}
+.price-option:active,.price-option:hover{transform:translateY(-3px);box-shadow:0 5px 18px #078cff55}
+.price-option strong{display:block;color:#fff;font-size:18px;margin-bottom:8px}
+.price-option .iqd{display:block;color:#38c5ff;font-weight:900;font-size:17px}
+.price-option .usd{display:block;color:#b9d9ff;font-size:14px;margin-top:5px}
+.order-modal{display:none;position:fixed;inset:0;z-index:9999;background:#000c;padding:18px;overflow:auto;align-items:center;justify-content:center}
+.order-modal.open{display:flex}
+.order-box{width:100%;max-width:440px;background:#101f36;border:1px solid #078cff;border-radius:18px;padding:20px;color:#fff;position:relative}
+.order-box h3{text-align:center;color:#38c5ff;margin:0 0 15px}
+.order-box label{display:block;margin:12px 0 6px;font-weight:bold}
+.order-box input,.order-box select{width:100%;padding:12px;border:1px solid #315477;border-radius:9px;background:#071326;color:#fff;font-size:16px;box-sizing:border-box}
+.order-summary{background:#071326;border-radius:10px;padding:12px;line-height:1.9;margin:12px 0}
+.order-submit{width:100%;border:0;border-radius:10px;padding:14px;background:#078cff;color:#fff;font-size:17px;font-weight:bold;cursor:pointer;margin-top:12px}
+.order-close{position:absolute;left:12px;top:10px;background:none;border:0;color:#fff;font-size:25px;cursor:pointer}
+@media(max-width:380px){.price-grid{gap:8px}.price-option{padding:13px 5px}.price-option strong{font-size:16px}}
 
 
-/* NEW FALAH STORE HOMEPAGE */
-.new-header{
-  padding:22px 18px 12px;
-  background:linear-gradient(180deg,#0b1d35,#050b17);
-  border:0;
-}
-.new-header .logo{font-size:32px}
-.header-tagline{position:relative;color:#a9c9e8;font-size:13px}
-.new-premium-hero{
-  margin:18px auto 35px;
-  min-height:470px;
-  padding:55px 5%;
-  border-color:#167bd0;
-  background:
-    radial-gradient(ellipse at 15% 80%,#087cff35,transparent 42%),
-    radial-gradient(ellipse at 85% 20%,#12baff30,transparent 40%),
-    linear-gradient(120deg,#050d1c,#0b2340 55%,#061326);
-  box-shadow:0 20px 65px #007bff20;
-}
-.new-premium-hero:before{
-  content:"";
-  position:absolute;
-  width:260px;height:260px;
-  border-radius:50%;
-  background:#078cff20;
-  filter:blur(65px);
-  left:-80px;bottom:-110px;
-  animation:newBlueGlow 7s ease-in-out infinite alternate;
-}
-.new-hero-content{max-width:650px}
-.new-badges{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:20px}
-.new-badges span{
-  color:#8bd5ff;
-  background:#078cff18;
-  border:1px solid #168cff55;
-  border-radius:30px;
-  padding:5px 12px;
-  font-size:12px;
-}
-.new-hero-content h2{
-  font-size:clamp(34px,5vw,53px);
-  line-height:1.45;
-  margin:12px 0;
-}
-.new-hero-content p{font-size:17px;line-height:2}
-.new-stats{display:flex;gap:30px;flex-wrap:wrap;margin-top:24px}
-.new-stats div{display:flex;flex-direction:column}
-.new-stats strong{font-size:22px;color:#55c5ff}
-.new-stats small{font-size:12px;color:#a9c4df}
-.new-hero-actions{margin-top:30px}
-.free-trial-button{
-  display:inline-block;
-  background:linear-gradient(110deg,#006cff,#13baff);
-  color:#fff;
-  box-shadow:0 0 22px #078cff70;
-  animation:trialBluePulse 2.4s ease-in-out infinite;
-}
-.new-packages-button{padding:12px 25px}
-.new-trust-items{
-  display:flex;gap:18px;flex-wrap:wrap;
-  margin-top:25px;color:#a9c9e8;font-size:12px
-}
-.new-hero-art{width:340px}
-.new-logo-card{
-  animation:newLogoFloat 4s ease-in-out infinite;
-  box-shadow:0 0 70px #078cff45;
-}
-.logo-quality{
-  margin:12px auto 0;
-  color:#65caff;
-  font-size:12px;
-  letter-spacing:2px;
-}
-@keyframes newBlueGlow{
-  from{transform:translate(0,0) scale(.9);opacity:.55}
-  to{transform:translate(70px,-35px) scale(1.3);opacity:1}
-}
-@keyframes trialBluePulse{
-  0%,100%{box-shadow:0 0 15px #078cff55}
-  50%{box-shadow:0 0 32px #078cffaa}
-}
-@keyframes newLogoFloat{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-9px)}
-}
-@media(max-width:700px){
-  .new-header{padding:18px 12px 8px}
-  .new-header .logo{font-size:27px}
-  .new-premium-hero{padding:30px 20px;min-height:0}
-  .new-hero-art{height:220px;width:100%}
-  .new-logo-card{width:185px}
-  .new-badges{justify-content:center}
-  .new-hero-content h2{font-size:34px}
-  .new-hero-content p{font-size:15px}
-  .new-stats{justify-content:center;gap:20px}
-  .new-hero-actions{flex-direction:column}
-  .free-trial-button,.new-packages-button{text-align:center}
-  .new-trust-items{justify-content:center;gap:10px}
-}
-@media(prefers-reduced-motion:reduce){
-  .new-premium-hero:before,.free-trial-button,.new-logo-card{animation:none}
-}
-
-
-/* SUPPORTED DEVICES */
-.new-device-section{
-  padding:25px 18px;
+/* FALAH STORE - Premium Top Slider */
+.falah-top-slider{
+  position:relative;
+  width:100%;
+  aspect-ratio:3712 / 1152;
   overflow:hidden;
+  background:#050b16;
+  isolation:isolate;
 }
-.devices-main-image{
+.falah-slider-slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity 1s ease;
+  z-index:0;
+}
+.falah-slider-slide.active{
+  opacity:1;
+  z-index:1;
+}
+.falah-slider-slide img{
   display:block;
   width:100%;
-  max-width:850px;
-  height:auto;
-  margin:0 auto 25px;
-  border-radius:18px;
-  box-shadow:0 0 30px #078cff55;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1.06);
+  transition:transform 3s ease;
 }
-.new-device-section h2{
-  margin:15px 0 25px;
-  color:#65caff;
-}
-.supported-devices{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:16px;
-  max-width:850px;
-  margin:auto;
-}
-.device-glow{
-  padding:18px 10px;
-  border:1px solid #168cff;
-  border-radius:14px;
-  background:linear-gradient(135deg,#08264a,#0758a0,#08264a);
-  color:#fff;
-  font-size:16px;
-  font-weight:bold;
-  box-shadow:0 0 14px #078cff70,inset 0 0 12px #078cff30;
-  animation:deviceGlow 2.5s ease-in-out infinite alternate;
-}
-.device-glow:last-child{
-  grid-column:1/-1;
-  width:calc(50% - 8px);
-  justify-self:center;
-}
-@keyframes deviceGlow{
-  from{box-shadow:0 0 8px #078cff55,inset 0 0 8px #078cff20}
-  to{box-shadow:0 0 25px #078cffff,inset 0 0 16px #078cff55}
-}
-@media(max-width:600px){
-  .new-device-section{padding:18px 12px}
-  .supported-devices{gap:11px}
-  .device-glow{font-size:13px;padding:15px 5px}
+.falah-slider-slide.active img{
+  transform:scale(1);
 }
 @media(prefers-reduced-motion:reduce){
-  .device-glow{animation:none}
+  .falah-slider-slide,
+  .falah-slider-slide img{
+    transition:none;
+  }
 }
 
-</style>
+
+.falah-top-slider::after{
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:3px;
+  background:linear-gradient(90deg,transparent,#078cff,#35baff,#078cff,transparent);
+  box-shadow:0 0 8px #078cff,0 0 18px rgba(0,140,255,.75);
+  z-index:5;
+  pointer-events:none;
+}
+
+
+/* SUPPORTED DEVICES DESIGN */
+.new-device-section{padding:25px 18px;overflow:hidden}
+.devices-main-image{
+display:block;width:100%;max-width:850px;height:auto;
+margin:0 auto 25px;border-radius:18px;
+box-shadow:0 0 30px #078cff66
+}
+.new-device-section h2{color:#65caff;margin:15px 0 25px}
+.supported-devices{
+display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+gap:16px;max-width:850px;margin:auto
+}
+.device-glow{
+padding:18px 10px;border:1px solid #168cff;
+border-radius:14px;
+background:linear-gradient(135deg,#08264a,#0758a0,#08264a);
+color:#fff;font-size:16px;font-weight:bold;
+box-shadow:0 0 14px #078cff70;
+animation:deviceGlow 2.5s ease-in-out infinite alternate,
+deviceFloat 3s ease-in-out infinite
+}
+.device-glow:last-child{
+grid-column:1/-1;width:calc(50% - 8px);justify-self:center
+}
+@keyframes deviceGlow{
+from{box-shadow:0 0 8px #078cff55}
+to{box-shadow:0 0 28px #078cffff}
+}
+@keyframes deviceFloat{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-5px)}
+}
+@media(max-width:600px){
+.new-device-section{padding:18px 12px}
+.supported-devices{gap:11px}
+.device-glow{font-size:13px;padding:15px 5px}
+}
+@media(prefers-reduced-motion:reduce){
+.device-glow{animation:none}
+}
+\n</style>
 </head>
 <body>
-
-<header class="new-header">
-  <div class="logo">FALAH STORE</div>
-  <span class="header-tagline">عالم الترفيه بين يديك</span>
+<section class="falah-top-slider" aria-label="عروض فلاح ستور">
+<div class="falah-slider-slide active"><img src="1.jpg" alt="FALAH STORE - عرض 1" fetchpriority="high"></div>
+<div class="falah-slider-slide"><img src="2.jpg" alt="FALAH STORE - عرض 2" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="3.jpg" alt="FALAH STORE - عرض 3" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="4.jpg" alt="FALAH STORE - عرض 4" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="5.jpg" alt="FALAH STORE - عرض 5" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="6.jpg" alt="FALAH STORE - عرض 6" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="7.jpg" alt="FALAH STORE - عرض 7" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="8.jpg" alt="FALAH STORE - عرض 8" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="9.jpg" alt="FALAH STORE - عرض 9" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="10.jpg" alt="FALAH STORE - عرض 10" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="11.jpg" alt="FALAH STORE - عرض 11" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="12.jpg" alt="FALAH STORE - عرض 12" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="13.jpg" alt="FALAH STORE - عرض 13" loading="lazy"></div>
+<div class="falah-slider-slide"><img src="14.jpg" alt="FALAH STORE - عرض 14" loading="lazy"></div>
+</section>
+<header>
+<div class="logo">FALAH STORE</div>
+<h1>برامج فلاح ستور</h1>
+<p>جميع برامجنا وتطبيقاتنا بمكان واحد</p>
 </header>
 
-<section class="premium-hero new-premium-hero" id="premium-hero">
-  <div class="hero-content new-hero-content">
-    <div class="new-badges">
-      <span>✦ تجربة مجانية</span>
-      <span>بدون إعلانات</span>
-      <span>4K ULTRA HD</span>
-      <span>مباشر</span>
+<section class="premium-hero" id="premium-hero">
+  <div class="hero-content">
+    <span class="hero-badge">✦ أهلاً بك في عالم فلاح ستور</span>
+    <h2>ترفيهك المفضل<br><span>يبدأ من هنا</span></h2>
+    <p>اكتشف تطبيقاتنا واستمتع بتجربة مميزة على الشاشات والهواتف والحاسوب.</p>
+    <div class="hero-actions">
+      <a href="#apps" class="hero-button">اكتشف برامجنا ←</a>
+      <a href="#video" class="hero-secondary">شاهد الفيديو</a>
     </div>
-
-    <h2>وجهتك الأولى<br><span>للترفيه العربي</span></h2>
-
-    <p>شاهد القنوات المباشرة والأفلام والمسلسلات وأهم بطولات كرة القدم — على أي جهاز.</p>
-
-    <div class="new-stats">
-      <div><strong>مباشر</strong><small>تلفزيون عربي ودولي</small></div>
-      <div><strong>+5,000</strong><small>فيلم ومسلسل</small></div>
-      <div><strong>+100</strong><small>دولة حول العالم</small></div>
-    </div>
-
-    <div class="hero-actions new-hero-actions">
-      <a class="hero-button free-trial-button"
-         href="https://wa.me/9647803734579?text=مرحبا%20فلاح%20ستور،%20أريد%20الحصول%20على%20تجربة%20مجانية%20لمدة%2024%20ساعة"
-         target="_blank" rel="noopener noreferrer">
-        احصل على تجربة مجانية لمدة 24 ساعة
-      </a>
-      <a href="#apps" class="hero-secondary new-packages-button">استكشف الباقات</a>
-    </div>
-
-    <div class="new-trust-items">
-      <span>✓ تفعيل فوري</span>
-      <span>✓ يعمل على جميع أجهزتك</span>
-      <span>✓ مساعدة مباشرة</span>
+    <div class="hero-features">
+      <div><strong>FALAH</strong><small>عالم من الترفيه</small></div>
+      <div><strong>جميع الأجهزة</strong><small>شاشات وهواتف وحاسوب</small></div>
+      <div><strong>بمكان واحد</strong><small>تطبيقاتنا بين يديك</small></div>
     </div>
   </div>
-
-  <div class="hero-art new-hero-art">
+  <div class="hero-art">
     <div class="hero-orbit orbit-one"></div>
     <div class="hero-orbit orbit-two"></div>
-    <div class="hero-logo-card new-logo-card">
+    <div class="hero-logo-card">
       <img src="شعار.png" alt="شعار فلاح ستور">
       <strong>FALAH STORE</strong>
       <span>SMART ENTERTAINMENT</span>
-      <div class="logo-quality">4K ULTRA HD</div>
     </div>
   </div>
 </section>
 
+
 <section class="container compatibility new-device-section">
-  <img class="devices-main-image" src="F.png" alt="الأجهزة المدعومة">
-  <h2>الأجهزة المدعومة</h2>
-  <div class="supported-devices">
-    <div class="device-glow">أجهزة الكمبيوتر</div>
-    <div class="device-glow">أجهزة TV Box</div>
-    <div class="device-glow">الهواتف</div>
-    <div class="device-glow">الأجهزة اللوحية</div>
-    <div class="device-glow">التلفزيونات الذكية</div>
-  </div>
+<img class="devices-main-image" src="F.png" alt="الأجهزة المدعومة">
+<h2>الأجهزة المدعومة</h2>
+<div class="supported-devices">
+<div class="device-glow">أجهزة الكمبيوتر</div>
+<div class="device-glow">أجهزة TV Box</div>
+<div class="device-glow">الهواتف</div>
+<div class="device-glow">الأجهزة اللوحية</div>
+<div class="device-glow">التلفزيونات الذكية</div>
+</div>
 </section>
 
 <section class="container video-banner" id="video">
@@ -589,7 +518,57 @@ body,.premium-hero{animation:none;}
 </div>
 
 
+
 </div>
+
+<section class="prices-section" id="subscription-prices">
+<button class="prices-toggle" type="button" onclick="toggleSubscriptionPrices()">أسعار الاشتراك</button>
+<div class="prices-panel" id="pricesPanel">
+
+<div class="price-plan">
+<h3>الباقة العادية</h3>
+<div class="price-grid">
+<button class="price-option" onclick="selectSubscription('العادية','شهر',5000)"><strong>شهر</strong><span class="iqd">5,000 د.ع</span><span class="usd">$2.94</span></button>
+<button class="price-option" onclick="selectSubscription('العادية','3 أشهر',10000)"><strong>3 أشهر</strong><span class="iqd">10,000 د.ع</span><span class="usd">$5.88</span></button>
+<button class="price-option" onclick="selectSubscription('العادية','6 أشهر',15000)"><strong>6 أشهر</strong><span class="iqd">15,000 د.ع</span><span class="usd">$8.82</span></button>
+<button class="price-option" onclick="selectSubscription('العادية','سنة',25000)"><strong>سنة</strong><span class="iqd">25,000 د.ع</span><span class="usd">$14.71</span></button>
+</div>
+</div>
+
+<div class="price-plan">
+<h3>الباقة المفتوحة</h3>
+<div class="price-grid">
+<button class="price-option" onclick="selectSubscription('المفتوحة','شهر',10000)"><strong>شهر</strong><span class="iqd">10,000 د.ع</span><span class="usd">$5.88</span></button>
+<button class="price-option" onclick="selectSubscription('المفتوحة','3 أشهر',20000)"><strong>3 أشهر</strong><span class="iqd">20,000 د.ع</span><span class="usd">$11.76</span></button>
+<button class="price-option" onclick="selectSubscription('المفتوحة','6 أشهر',25000)"><strong>6 أشهر</strong><span class="iqd">25,000 د.ع</span><span class="usd">$14.71</span></button>
+<button class="price-option" onclick="selectSubscription('المفتوحة','سنة',35000)"><strong>سنة</strong><span class="iqd">35,000 د.ع</span><span class="usd">$20.59</span></button>
+</div>
+</div>
+</div>
+</section>
+
+<div class="order-modal" id="orderModal" onclick="if(event.target===this)closeSubscriptionOrder()">
+<div class="order-box">
+<button class="order-close" type="button" onclick="closeSubscriptionOrder()">×</button>
+<h3>طلب اشتراك فلاح ستور</h3>
+<form id="subscriptionOrderForm" onsubmit="sendSubscriptionOrder(event)">
+<label for="customerName">اسم الزبون</label>
+<input id="customerName" type="text" required maxlength="80" placeholder="اكتب اسمك">
+<label for="customerPhone">رقم الهاتف</label>
+<input id="customerPhone" type="tel" required maxlength="20" placeholder="07xxxxxxxxx">
+<div class="order-summary" id="orderSummary"></div>
+<label for="paymentMethod">طريقة الدفع</label>
+<select id="paymentMethod" required>
+<option value="">اختر طريقة الدفع</option>
+<option value="زين كاش">زين كاش</option>
+<option value="ماستر كارد">ماستر كارد</option>
+<option value="رصيد آسيا سيل">رصيد آسيا سيل</option>
+</select>
+<button class="order-submit" type="submit">إرسال الطلب عبر واتساب</button>
+</form>
+</div>
+</div>
+
 </main>
 
 <section class="container tv-guide" id="tv-guide">
@@ -704,6 +683,67 @@ setTimeout(()=>button.textContent='نسخ الكود',2000);
 button.textContent='تعذر النسخ';
 }
 }
+
+
+// FALAH STORE SUBSCRIPTION ORDER
+const subscriptionWhatsApp = "9647803734579";
+let selectedSubscription = null;
+
+function toggleSubscriptionPrices(){
+  document.getElementById("pricesPanel").classList.toggle("open");
+}
+
+function selectSubscription(plan, duration, price){
+  selectedSubscription = {plan, duration, price};
+  const usd = (price / 1700).toFixed(2);
+  document.getElementById("orderSummary").innerHTML =
+    "<strong>الباقة:</strong> " + plan +
+    "<br><strong>المدة:</strong> " + duration +
+    "<br><strong>السعر:</strong> " + price.toLocaleString("en-US") +
+    " دينار عراقي ($" + usd + ")";
+  document.getElementById("orderModal").classList.add("open");
+}
+
+function closeSubscriptionOrder(){
+  document.getElementById("orderModal").classList.remove("open");
+}
+
+function sendSubscriptionOrder(event){
+  event.preventDefault();
+
+  if(!selectedSubscription){
+    alert("يرجى اختيار باقة ومدة الاشتراك أولاً");
+    return;
+  }
+
+  const name = document.getElementById("customerName").value.trim();
+  const phone = document.getElementById("customerPhone").value.trim();
+  const payment = document.getElementById("paymentMethod").value;
+
+  if(!name || !phone || !payment){
+    alert("يرجى إكمال جميع المعلومات");
+    return;
+  }
+
+  const price = selectedSubscription.price;
+  const usd = (price / 1700).toFixed(2);
+
+  const message =
+    "طلب اشتراك جديد - فلاح ستور\n" +
+    "اسم الزبون: " + name + "\n" +
+    "رقم الهاتف: " + phone + "\n" +
+    "الباقة: " + selectedSubscription.plan + "\n" +
+    "المدة: " + selectedSubscription.duration + "\n" +
+    "السعر: " + price.toLocaleString("en-US") + " دينار عراقي\n" +
+    "بالدولار: $" + usd + "\n" +
+    "طريقة الدفع: " + payment;
+
+  const url = "https://wa.me/" + subscriptionWhatsApp +
+    "?text=" + encodeURIComponent(message);
+
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
 </script>
 
 
@@ -715,6 +755,22 @@ button.textContent='تعذر النسخ';
 </span>
 <span class="whatsapp-label">تواصل مع الدعم</span>
 </a>
+
+
+<script>
+/* FALAH STORE - Premium Slider Auto Play */
+(() => {
+  const slides = document.querySelectorAll(".falah-slider-slide");
+  if (slides.length < 2) return;
+
+  let current = 0;
+  setInterval(() => {
+    slides[current].classList.remove("active");
+    current = (current + 1) % slides.length;
+    slides[current].classList.add("active");
+  }, 3000);
+})();
+</script>
 
 </body>
 </html>
