@@ -255,7 +255,7 @@ transform:scale(1.1);
 @media(max-width:600px){
   .falah-top-slider{
     width:calc(100% - 16px);
-    min-height:125px;
+    min-height:0;\n    aspect-ratio:16 / 9;\n    height:auto;
     margin:10px auto 20px;
     border-radius:14px;
   }
@@ -333,9 +333,10 @@ header:before{animation:falahAura 7s ease-in-out infinite alternate;}
   display:block;
   width:100%;
   height:100%;
-  object-fit:cover;
-  transform:scale(1.06);
-  transition:transform 3s ease;
+  object-fit:contain;
+  object-position:center;
+  transform:scale(1);
+  transition:opacity 1s ease;
 }
 .falah-slider-slide.active img{
   transform:scale(1);
@@ -835,12 +836,7 @@ box-shadow:0 10px 30px #078cff85;
 </div>
 </section>
 
-<section class="container video-banner" id="video">
-<video autoplay muted loop playsinline controls>
-<source src="Uuuuu.mp4" type="video/mp4">
-متصفحك لا يدعم تشغيل الفيديو.
-</video>
-</section>
+
 <main class="container">
 <h2>تطبيقاتنا</h2>
 <input class="search" id="search" placeholder="ابحث عن برنامج..." oninput="filterApps()">
