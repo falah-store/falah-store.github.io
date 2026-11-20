@@ -693,6 +693,72 @@ to{box-shadow:0 0 28px #078cffff}
   #features .feature-item::before{width:47px;height:47px;font-size:24px}
 }
 
+
+/* FALAH PREMIUM CARD FINISH */
+.app{
+background:
+radial-gradient(ellipse at 50% 0%,#087cff28,transparent 58%),
+linear-gradient(145deg,#102b49,#071326 75%);
+border:1px solid #2878b8;
+border-radius:25px;
+box-shadow:0 14px 38px #0008,0 0 18px #078cff12;
+transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease;
+}
+.app:hover{
+transform:translateY(-9px);
+border-color:#43bdff;
+box-shadow:0 22px 48px #0009,0 0 28px #078cff45;
+}
+.app-logo{
+border:2px solid #55bdff;
+box-shadow:0 0 0 5px #168cff13,0 0 28px #078cff65;
+transition:transform .35s,box-shadow .35s;
+}
+.app:hover .app-logo{
+transform:scale(1.045);
+box-shadow:0 0 0 6px #168cff20,0 0 35px #078cff90;
+}
+.app h3{ text-shadow:0 2px 15px #168cff35; }
+.download{
+border:1px solid #58c5ff;
+background:linear-gradient(110deg,#0865db,#08aaff);
+box-shadow:0 7px 24px #078cff45,inset 0 1px 0 #ffffff35;
+}
+.download:hover{
+transform:translateY(-3px) scale(1.025);
+box-shadow:0 10px 30px #078cff75;
+}
+.download-card{
+min-height:350px;
+border:1px solid #268bce;
+border-radius:25px;
+box-shadow:0 16px 42px #0009,0 0 22px #078cff20;
+}
+.download-card:after{
+background:linear-gradient(180deg,#06132666 0%,#061326c9 48%,#020814f5 100%);
+}
+.card-content{padding:32px 22px;}
+.card-icon{filter:drop-shadow(0 0 12px #168cff);}
+.download-code{
+text-shadow:0 0 12px #078cff,0 0 28px #078cff95;
+letter-spacing:5px;
+}
+.copy-code{
+border:1px solid #75d4ff;
+background:linear-gradient(110deg,#0865db,#08aaff);
+box-shadow:0 6px 25px #078cff55,inset 0 1px 0 #ffffff40;
+transition:transform .25s,box-shadow .25s,filter .25s;
+}
+.copy-code:hover{
+transform:translateY(-3px);
+filter:brightness(1.15);
+box-shadow:0 10px 30px #078cff85;
+}
+@media(max-width:600px){
+.app{border-radius:21px;}
+.download-card{min-height:330px;}
+}
+
 </style>
 </head>
 <body>
