@@ -645,6 +645,131 @@ to{box-shadow:0 0 28px #078cffff}
 }
 
 
+
+/* FALAH STORE NEW PREMIUM PRICING */
+#subscription-prices .falah-pricing-heading{
+  text-align:center;
+  margin:0 auto 25px;
+}
+#subscription-prices .falah-pricing-heading span{
+  color:#43bdff;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:3px;
+}
+#subscription-prices .falah-pricing-heading h2{
+  color:#fff;
+  font-size:clamp(25px,4vw,38px);
+  margin:10px 0;
+}
+#subscription-prices .falah-pricing-heading p{
+  color:#a9c5df;
+  font-size:14px;
+}
+#subscription-prices .prices-panel.open{
+  display:block;
+}
+#subscription-prices .falah-plan-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+#subscription-prices .falah-plan-card{
+  position:relative;
+  min-width:0;
+  padding:23px 16px;
+  overflow:hidden;
+  text-align:center;
+  border:1px solid #1765a0;
+  border-radius:22px;
+  background:radial-gradient(circle at 50% 0%,#078cff28,transparent 55%),linear-gradient(150deg,#102541,#07111f);
+  box-shadow:0 15px 35px #0005;
+}
+#subscription-prices .falah-plan-featured{
+  border:1px solid #42bdff;
+  box-shadow:0 12px 38px #078cff30,inset 0 0 25px #078cff0c;
+}
+#subscription-prices .falah-plan-label{
+  display:inline-block;
+  padding:6px 13px;
+  border:1px solid #258bd0;
+  border-radius:30px;
+  color:#8bd7ff;
+  background:#087cff20;
+  font-size:12px;
+  font-weight:800;
+}
+#subscription-prices .falah-plan-card h3{
+  color:#fff;
+  font-size:23px;
+  margin:15px 0 10px;
+}
+#subscription-prices .falah-device-count{
+  color:#45c3ff;
+  font-weight:900;
+  font-size:16px;
+}
+#subscription-prices .falah-plan-card p{
+  min-height:48px;
+  color:#b5c9dc;
+  font-size:13px;
+  line-height:1.8;
+}
+#subscription-prices .falah-price-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin-top:17px;
+}
+#subscription-prices .falah-price-option{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  min-width:0;
+  min-height:105px;
+  padding:12px 5px;
+  border:1px solid #22649b;
+  border-radius:14px;
+  background:linear-gradient(145deg,#12365a,#09182b);
+  color:#fff;
+  cursor:pointer;
+  transition:.2s ease;
+}
+#subscription-prices .falah-price-option:hover{
+  transform:translateY(-3px);
+  border-color:#55caff;
+  box-shadow:0 8px 22px #078cff35;
+}
+#subscription-prices .falah-price-option strong{
+  font-size:14px;
+}
+#subscription-prices .falah-price-option b{
+  color:#48c5ff;
+  font-size:19px;
+}
+#subscription-prices .falah-price-option small{
+  color:#a9c5df;
+  font-size:11px;
+}
+@media(max-width:850px){
+  #subscription-prices .falah-plan-grid{
+    grid-template-columns:1fr;
+  }
+  #subscription-prices .falah-plan-card p{
+    min-height:0;
+  }
+}
+@media(max-width:380px){
+  #subscription-prices .falah-plan-card{
+    padding:18px 11px;
+  }
+  #subscription-prices .falah-price-option b{
+    font-size:17px;
+  }
+}
+
 /* FALAH STORE PREMIUM FEATURES UPGRADE */
 #features{
   position:relative;
@@ -1466,29 +1591,59 @@ box-shadow:0 10px 30px #078cff85;
 </div>
 
 <section class="prices-section" id="subscription-prices">
-<button class="prices-toggle" type="button" onclick="toggleSubscriptionPrices()">أسعار الاشتراك</button>
-<div class="prices-panel" id="pricesPanel">
+  <div class="falah-pricing-heading">
+    <span>FALAH STORE PREMIUM</span>
+    <h2>اختر باقتك واستمتع</h2>
+    <p>كل الترفيه والمباريات والأفلام والمسلسلات في مكان واحد</p>
+  </div>
 
-<div class="price-plan">
-<h3>الباقة العادية</h3>
-<div class="price-grid">
-<button class="price-option" onclick="selectSubscription('العادية','شهر',5000)"><strong>شهر</strong><span class="iqd">5,000 د.ع</span><span class="usd">$2.94</span></button>
-<button class="price-option" onclick="selectSubscription('العادية','3 أشهر',10000)"><strong>3 أشهر</strong><span class="iqd">10,000 د.ع</span><span class="usd">$5.88</span></button>
-<button class="price-option" onclick="selectSubscription('العادية','6 أشهر',15000)"><strong>6 أشهر</strong><span class="iqd">15,000 د.ع</span><span class="usd">$8.82</span></button>
-<button class="price-option" onclick="selectSubscription('العادية','سنة',25000)"><strong>سنة</strong><span class="iqd">25,000 د.ع</span><span class="usd">$14.71</span></button>
-</div>
-</div>
+  <button class="prices-toggle" type="button" onclick="toggleSubscriptionPrices()">استعرض باقات الاشتراك</button>
 
-<div class="price-plan">
-<h3>الباقة المفتوحة</h3>
-<div class="price-grid">
-<button class="price-option" onclick="selectSubscription('المفتوحة','شهر',10000)"><strong>شهر</strong><span class="iqd">10,000 د.ع</span><span class="usd">$5.88</span></button>
-<button class="price-option" onclick="selectSubscription('المفتوحة','3 أشهر',20000)"><strong>3 أشهر</strong><span class="iqd">20,000 د.ع</span><span class="usd">$11.76</span></button>
-<button class="price-option" onclick="selectSubscription('المفتوحة','6 أشهر',25000)"><strong>6 أشهر</strong><span class="iqd">25,000 د.ع</span><span class="usd">$14.71</span></button>
-<button class="price-option" onclick="selectSubscription('المفتوحة','سنة',35000)"><strong>سنة</strong><span class="iqd">35,000 د.ع</span><span class="usd">$20.59</span></button>
-</div>
-</div>
-</div>
+  <div class="prices-panel" id="pricesPanel">
+
+    <div class="falah-plan-grid">
+
+      <article class="falah-plan-card">
+        <div class="falah-plan-label">اختيار اقتصادي</div>
+        <h3>باقة التوفير</h3>
+        <div class="falah-device-count">جهاز واحد</div>
+        <p>اشتراك اقتصادي لمشاهدة محتواك المفضل على جهاز واحد</p>
+        <div class="falah-price-grid">
+          <button class="falah-price-option" onclick="selectSubscription('التوفير','شهر',5000)"><strong>شهر</strong><b>5,000</b><small>دينار عراقي</small></button>
+          <button class="falah-price-option" onclick="selectSubscription('التوفير','3 أشهر',10000)"><strong>3 أشهر</strong><b>10,000</b><small>دينار عراقي</small></button>
+          <button class="falah-price-option" onclick="selectSubscription('التوفير','6 أشهر',15000)"><strong>6 أشهر</strong><b>15,000</b><small>دينار عراقي</small></button>
+          <button class="falah-price-option" onclick="selectSubscription('التوفير','سنة',25000)"><strong>سنة</strong><b>25,000</b><small>دينار عراقي</small></button>
+        </div>
+      </article>
+
+      <article class="falah-plan-card falah-plan-featured">
+        <div class="falah-plan-label">الباقة المميزة</div>
+        <h3>الباقة العادية</h3>
+        <div class="falah-device-count">جهازان</div>
+        <p>تجربة مشاهدة مميزة لك ولأحد أفراد العائلة</p>
+        <div class="falah-price-grid">
+          <button class="falah-price-option" onclick="selectSubscription('العادية','شهر',6000)"><strong>شهر</strong><b>6,000</b><small>دينار عراقي</small></button>
+          <button class="falah-price-option" onclick="selectSubscription('العادية','3 أشهر',12000)"><strong>3 أشهر</strong><b>12,000</b><small>دينار عراقي</small></button>
+          <button class="falah-price-option" onclick="selectSubscription('العادية','6 أشهر',17000)"><strong>6 أشهر</strong><b>17,000</b><small>دينار عراقي</small></button>
+          <button class="falah-price-option" onclick="selectSubscription('العادية','سنة',27000)"><strong>سنة</strong><b>27,000</b><small>دينار عراقي</small></button>
+        </div>
+      </article>
+
+      <article class="falah-plan-card">
+        <div class="falah-plan-label">تجربة موسعة</div>
+        <h3>الباقة المفتوحة</h3>
+        <div class="falah-device-count">3 أجهزة</div>
+        <p>محتوى متنوع مع إمكانية مشاهدة قنوات الكبار +18</p>
+        <div class="falah-price-grid">
+          <button class="falah-price-option" onclick="selectSubscription('المفتوحة','شهر',10000)"><strong>شهر</strong><b>10,000</b><small>دينار عراقي</small></button>
+          <button class="falah-price-option" onclick="selectSubscription('المفتوحة','3 أشهر',20000)"><strong>3 أشهر</strong><b>20,000</b><small>دينار عراقي</small></button>
+          <button class="falah-price-option" onclick="selectSubscription('المفتوحة','6 أشهر',30000)"><strong>6 أشهر</strong><b>30,000</b><small>دينار عراقي</small></button>
+          <button class="falah-price-option" onclick="selectSubscription('المفتوحة','سنة',45000)"><strong>سنة</strong><b>45,000</b><small>دينار عراقي</small></button>
+        </div>
+      </article>
+
+    </div>
+  </div>
 </section>
 
 <div class="order-modal" id="orderModal" onclick="if(event.target===this)closeSubscriptionOrder()">
@@ -1813,7 +1968,7 @@ function sendSubscriptionOrder(event){
   const url = "https://wa.me/" + subscriptionWhatsApp +
     "?text=" + encodeURIComponent(message);
 
-  window.open(url, "_blank", "noopener,noreferrer");
+  window.location.href = url;
 }
 
 </script>
