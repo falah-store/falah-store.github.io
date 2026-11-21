@@ -1451,6 +1451,278 @@ box-shadow:0 10px 30px #078cff85;
     }
   
   </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<script>
+        tailwind.config = {
+        corePlugins: { preflight: false },
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['IBM Plex Sans Arabic', 'Cairo', 'sans-serif'],
+                        display: ['Cairo', 'IBM Plex Sans Arabic', 'sans-serif'],
+                        num: ['Plus Jakarta Sans', 'Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style id="falah-enterprise-pricing-styles">
+
+        /* المتغيرات الأساسية والهوية البصرية */
+
+
+        /* الخلفية السينمائية العميقة بتدرجات الأزرق الكهربائي والبنفسجي الملكي */
+        .enterprise-stage {
+            position: relative;
+            background:
+                radial-gradient(ellipse 70% 50% at 18% 12%, rgba(0, 123, 255, 0.20) 0%, transparent 65%),
+                radial-gradient(ellipse 68% 52% at 84% 16%, rgba(124, 58, 237, 0.22) 0%, transparent 65%),
+                radial-gradient(ellipse 60% 45% at 50% 90%, rgba(14, 165, 233, 0.10) 0%, transparent 70%),
+                linear-gradient(160deg, #05070E 0%, #070B18 50%, #0A0716 100%);
+        }
+
+        /* شبكة خلفية هندسية فائقة الدقة والهدوء */
+        .enterprise-grid-overlay {
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+            background-size: 56px 56px;
+            mask-image: radial-gradient(ellipse 82% 72% at 50% 45%, #000 30%, transparent 100%);
+            -webkit-mask-image: radial-gradient(ellipse 82% 72% at 50% 45%, #000 30%, transparent 100%);
+        }
+
+        /* القاعدة الزجاجية ثلاثية الأبعاد (Glassmorphism & Micro-depth) */
+        .glass-card {
+            position: relative;
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border-radius: 28px;
+            transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+                        border-color 0.38s ease;
+            overflow: hidden;
+        }
+
+        /* طبقة حدود متدرجة 1px (Gradient Border Mask) لإضافة عمق هندسي مزدوج */
+        .glass-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 28px;
+            padding: 1px;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: 3;
+            transition: opacity 0.38s ease;
+        }
+
+        /* انعكاس ضوئي انسيابي عند المرور Hover */
+        .glass-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -135%;
+            width: 80%;
+            height: 100%;
+            background: linear-gradient(
+                112deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.02) 42%,
+                rgba(255, 255, 255, 0.09) 50%,
+                rgba(255, 255, 255, 0.02) 58%,
+                transparent 100%
+            );
+            transform: skewX(-22deg);
+            transition: left 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .glass-card:hover::before {
+            left: 165%;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-6px);
+        }
+
+        /* 1. باقة التوفير - طابع أزرق سماوي كهربائي هادئ */
+        .glass-saver {
+            background: linear-gradient(168deg, rgba(11, 23, 44, 0.76) 0%, rgba(6, 11, 22, 0.90) 100%);
+            border: 1px solid rgba(14, 165, 233, 0.24);
+            box-shadow:
+                0 24px 56px -14px rgba(0, 0, 0, 0.82),
+                0 0 28px rgba(14, 165, 233, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.14);
+        }
+        .glass-saver::after {
+            background: linear-gradient(150deg, rgba(56, 189, 248, 0.42), rgba(14, 165, 233, 0.06) 48%, rgba(255, 255, 255, 0.12));
+        }
+        .glass-saver:hover {
+            border-color: rgba(56, 189, 248, 0.55);
+            box-shadow:
+                0 30px 66px -14px rgba(0, 0, 0, 0.88),
+                0 0 42px rgba(14, 165, 233, 0.18),
+                inset 0 1px 0 rgba(125, 211, 252, 0.32);
+        }
+
+        /* 2. الباقة العادية - مميزة بصرياً بأناقة دون مبالغة بإطار أزرق كهربائي مضيء */
+        .glass-standard {
+            background: linear-gradient(168deg, rgba(13, 29, 64, 0.84) 0%, rgba(7, 14, 32, 0.94) 100%);
+            border: 1px solid rgba(0, 123, 255, 0.58);
+            box-shadow:
+                0 28px 68px -12px rgba(0, 0, 0, 0.88),
+                0 0 46px rgba(0, 123, 255, 0.26),
+                inset 0 1px 1px rgba(147, 197, 253, 0.38);
+        }
+        .glass-standard::after {
+            background: linear-gradient(145deg, rgba(56, 189, 248, 0.85), rgba(0, 123, 255, 0.25) 50%, rgba(124, 58, 237, 0.45));
+        }
+        @media (min-width: 1024px) {
+            .glass-standard {
+                transform: translateY(-6px);
+            }
+            .glass-standard:hover {
+                transform: translateY(-12px);
+            }
+        }
+        .glass-standard:hover {
+            border-color: rgba(56, 189, 248, 0.85);
+            box-shadow:
+                0 36px 78px -12px rgba(0, 0, 0, 0.92),
+                0 0 60px rgba(0, 123, 255, 0.38),
+                inset 0 1px 1px rgba(186, 230, 253, 0.55);
+        }
+
+        /* توهج علوي ناعم للباقة العادية */
+        @keyframes rimPulse {
+            0%, 100% { opacity: 0.55; }
+            50% { opacity: 0.95; }
+        }
+        .standard-rim-glow {
+            animation: rimPulse 4s ease-in-out infinite;
+        }
+
+        /* 3. الباقة المفتوحة - طابع بنفسجي داكن فخم مع لمسات ذهبية راقية */
+        .glass-open {
+            background: linear-gradient(168deg, rgba(26, 15, 46, 0.80) 0%, rgba(11, 7, 20, 0.92) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.34);
+            box-shadow:
+                0 24px 56px -14px rgba(0, 0, 0, 0.85),
+                0 0 34px rgba(124, 58, 237, 0.18),
+                0 0 20px rgba(212, 175, 55, 0.10),
+                inset 0 1px 0 rgba(253, 230, 138, 0.22);
+        }
+        .glass-open::after {
+            background: linear-gradient(150deg, rgba(245, 158, 11, 0.65), rgba(124, 58, 237, 0.32) 52%, rgba(212, 175, 55, 0.45));
+        }
+        .glass-open:hover {
+            border-color: rgba(245, 158, 11, 0.68);
+            box-shadow:
+                0 30px 68px -14px rgba(0, 0, 0, 0.90),
+                0 0 46px rgba(124, 58, 237, 0.28),
+                0 0 30px rgba(212, 175, 55, 0.20),
+                inset 0 1px 0 rgba(253, 230, 138, 0.40);
+        }
+
+        /* أزرار اختيار المدة Segmented Control بملمس تفاعلي ناعم */
+        .tier-btn {
+            position: relative;
+            cursor: pointer;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .tier-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* زر الاشتراك التفاعلي مع إضاءة داخلية ولمعان عند التمرير واستجابة ضغط */
+        .cta-enterprise {
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .cta-enterprise::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -110%;
+            width: 70%;
+            height: 100%;
+            background: linear-gradient(
+                105deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.28) 50%,
+                transparent 100%
+            );
+            transform: skewX(-20deg);
+            transition: left 0.65s ease;
+            pointer-events: none;
+        }
+        .cta-enterprise:hover::after {
+            left: 145%;
+        }
+        .cta-enterprise:active {
+            transform: scale(0.985);
+        }
+
+        /* حركة انتقال سلسة للأرقام عند تبديل المدة */
+        @keyframes digitSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(8px) scale(0.97);
+                filter: blur(3px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+        .price-animate {
+            animation: digitSlideIn 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        /* نبضة إضاءة خفيفة لصندوق السعر عند اختيار المدة */
+        @keyframes boxFlash {
+            0% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.42); }
+            100% { box-shadow: 0 0 0 12px rgba(14, 165, 233, 0); }
+        }
+        @keyframes boxFlashGold {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.42); }
+            100% { box-shadow: 0 0 0 12px rgba(212, 175, 55, 0); }
+        }
+        .price-box-pulse-blue {
+            animation: boxFlash 0.5s ease-out;
+        }
+        .price-box-pulse-gold {
+            animation: boxFlashGold 0.5s ease-out;
+        }
+
+        /* الأرقام الجدولية لمنع اهتزاز العرض أثناء التبديل */
+        .tabular-nums-clean {
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ظهور ناعم عند التمرير */
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-item.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    
+</style>
 </head>
 <body>
 <section class="falah-top-slider" aria-label="عروض فلاح ستور">
@@ -1491,7 +1763,7 @@ box-shadow:0 10px 30px #078cff85;
 
     <div class="hero-actions">
       <a href="https://wa.me/9647803734579?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D9%81%D9%84%D8%A7%D8%AD%20%D8%B3%D8%AA%D9%88%D8%B1%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AD%D8%B5%D9%88%D9%84%20%D8%B9%D9%84%D9%89%20%D8%AA%D8%AC%D8%B1%D8%A8%D8%A9%20%D9%85%D8%AC%D8%A7%D9%86%D9%8A%D8%A9%20%D9%84%D9%85%D8%AF%D8%A9%2024%20%D8%B3%D8%A7%D8%B9%D8%A9" class="hero-button" target="_blank" rel="noopener noreferrer">ابدأ تجربة مجانية لمدة 24 ساعة ←</a>
-      <a href="#subscription-prices" class="hero-secondary">استكشف الباقات</a>
+      <a href="#falah-subscriptions-section" class="hero-secondary">استكشف الباقات</a>
     </div>
 
     <div class="hero-trust">
@@ -1590,84 +1862,433 @@ box-shadow:0 10px 30px #078cff85;
 
 </div>
 
-<section class="prices-section" id="subscription-prices">
-  <div class="falah-pricing-heading">
-    <span>FALAH STORE PREMIUM</span>
-    <h2>اختر باقتك واستمتع</h2>
-    <p>كل الترفيه والمباريات والأفلام والمسلسلات في مكان واحد</p>
-  </div>
+<section id="falah-subscriptions-section" aria-labelledby="falah-plans-heading" class="enterprise-stage relative min-h-screen py-14 sm:py-20 px-4 sm:px-6 lg:px-10 flex flex-col justify-center">
 
-  <button class="prices-toggle" type="button" onclick="toggleSubscriptionPrices()">استعرض باقات الاشتراك</button>
+        <!-- شبكة خلفية هندسية وإضاءات محيطية ناعمة -->
+        <div class="enterprise-grid-overlay pointer-events-none absolute inset-0"></div>
+        <div class="pointer-events-none absolute -top-24 right-1/4 w-[420px] h-[420px] rounded-full bg-[#007BFF]/14 blur-[135px]"></div>
+        <div class="pointer-events-none absolute top-1/3 left-1/4 w-[460px] h-[460px] rounded-full bg-[#7C3AED]/14 blur-[145px]"></div>
 
-  <div class="prices-panel" id="pricesPanel">
+        <div class="relative z-10 max-w-[1340px] mx-auto w-full">
 
-    <div class="falah-plan-grid">
+            <!-- =================================================================
+                 ترويسة القسم
+            ================================================================== -->
+            <header class="reveal-item text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-4">
+                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md shadow-[0_0_24px_rgba(0,123,255,0.18)]">
+                    <span class="w-2 h-2 rounded-full bg-[#0EA5E9] shadow-[0_0_10px_#0EA5E9]"></span>
+                    <span class="font-display font-extrabold text-xs sm:text-sm tracking-wide text-slate-200">
+                        FALAH STORE <span class="text-[#38BDF8] mx-1">•</span> باقات الاشتراك
+                    </span>
+                </div>
 
-      <article class="falah-plan-card">
-        <div class="falah-plan-label">اختيار اقتصادي</div>
-        <h3>باقة التوفير</h3>
-        <div class="falah-device-count">جهاز واحد</div>
-        <p>اشتراك اقتصادي لمشاهدة محتواك المفضل على جهاز واحد</p>
-        <div class="falah-price-grid">
-          <button class="falah-price-option" onclick="selectSubscription('التوفير','شهر',5000)"><strong>شهر</strong><b>5,000</b><small>دينار عراقي</small></button>
-          <button class="falah-price-option" onclick="selectSubscription('التوفير','3 أشهر',10000)"><strong>3 أشهر</strong><b>10,000</b><small>دينار عراقي</small></button>
-          <button class="falah-price-option" onclick="selectSubscription('التوفير','6 أشهر',15000)"><strong>6 أشهر</strong><b>15,000</b><small>دينار عراقي</small></button>
-          <button class="falah-price-option" onclick="selectSubscription('التوفير','سنة',25000)"><strong>سنة</strong><b>25,000</b><small>دينار عراقي</small></button>
+                <h1 id="falah-plans-heading" class="font-display font-black text-3xl sm:text-5xl lg:text-[50px] leading-[1.22] text-white tracking-tight">
+                    اختر باقتك واستمتع بعالم من الترفيه
+                </h1>
+
+                <p class="text-base sm:text-xl font-medium text-slate-300/90 leading-relaxed">
+                    كل محتواك المفضل في مكان واحد مع <span class="font-bold bg-gradient-to-l from-[#38BDF8] via-[#60A5FA] to-[#A78BFA] bg-clip-text text-transparent">فلاح ستور</span>
+                </p>
+            </header>
+
+            <!-- =================================================================
+                 شبكة البطاقات الثلاث متساوية الارتفاع على الحاسوب ومتناسقة على الهاتف
+            ================================================================== -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-7 xl:gap-8 items-stretch">
+
+                <!-- -------------------------------------------------------------
+                     1. باقة التوفير (أزرق سماوي كهربائي هادئ - جهاز واحد)
+                -------------------------------------------------------------- -->
+                <article class="reveal-item glass-card glass-saver p-7 sm:p-8 flex flex-col justify-between">
+                    <!-- إضاءة علوية ناعمة داخل الزجاج -->
+                    <div class="pointer-events-none absolute -top-24 -right-24 w-56 h-56 rounded-full bg-[#0EA5E9]/14 blur-[65px]"></div>
+
+                    <div class="relative z-10 space-y-6">
+                        <!-- الشارة ومؤشر الجهاز الواحد -->
+                        <div class="flex items-center justify-between gap-3">
+                            <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#0EA5E9]/12 border border-[#38BDF8]/30 text-[#38BDF8] font-display font-extrabold text-xs tracking-wide">
+                                اقتصادية
+                            </span>
+
+                            <!-- رمز شاشة واحدة + جهاز واحد -->
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-sky-200 text-xs font-bold">
+                                <svg class="w-4 h-4 text-[#38BDF8] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+                                    <path d="M8 20h8"></path>
+                                    <path d="M12 16v4"></path>
+                                </svg>
+                                <span>جهاز واحد</span>
+                            </div>
+                        </div>
+
+                        <!-- اسم الباقة -->
+                        <div class="pt-0.5">
+                            <h2 class="font-display font-black text-2xl sm:text-[30px] leading-tight text-white tracking-tight">باقة التوفير</h2>
+                            <p class="text-xs sm:text-sm text-slate-400 mt-1.5">أداء مستقر واقتصادي للمشاهدة الفردية</p>
+                        </div>
+
+                        <!-- أزرار اختيار المدة الأربعة (Segmented Control) -->
+                        <div class="space-y-2.5">
+                            <div class="flex items-center justify-between text-xs text-slate-400 font-semibold">
+                                <span>مدة الاشتراك</span>
+                                <span id="saver-duration-hint" class="text-[#38BDF8] font-bold">سنة كاملة</span>
+                            </div>
+                            <div class="grid grid-cols-4 gap-1.5 p-1.5 rounded-2xl bg-[#03060E]/85 border border-white/10 shadow-inner" role="group" aria-label="اختر مدة باقة التوفير">
+                                <button type="button" onclick="updatePlan('saver', 'month', this)"
+                                        class="tier-btn saver-tab py-2.5 px-1 rounded-xl font-display font-bold text-xs sm:text-sm text-slate-300 hover:text-white hover:bg-white/[0.04] transition-all duration-200">
+                                    شهر
+                                </button>
+                                <button type="button" onclick="updatePlan('saver', '3months', this)"
+                                        class="tier-btn saver-tab py-2.5 px-1 rounded-xl font-display font-bold text-xs sm:text-sm text-slate-300 hover:text-white hover:bg-white/[0.04] transition-all duration-200">
+                                    3 أشهر
+                                </button>
+                                <button type="button" onclick="updatePlan('saver', '6months', this)"
+                                        class="tier-btn saver-tab py-2.5 px-1 rounded-xl font-display font-bold text-xs sm:text-sm text-slate-300 hover:text-white hover:bg-white/[0.04] transition-all duration-200">
+                                    6 أشهر
+                                </button>
+                                <button type="button" onclick="updatePlan('saver', 'year', this)"
+                                        class="tier-btn saver-tab py-2.5 px-1 rounded-xl font-display font-extrabold text-xs sm:text-sm bg-gradient-to-l from-[#0284C7] to-[#38BDF8] text-[#030712] shadow-[0_0_18px_rgba(14,165,233,0.45)] transition-all duration-200">
+                                    سنة
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- صندوق السعر المعماري المصقول -->
+                        <div id="saver-price-box" class="relative rounded-2xl bg-gradient-to-br from-[#0EA5E9]/[0.08] to-white/[0.02] border border-[#38BDF8]/25 p-5 flex items-center justify-between shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+                            <div>
+                                <div class="flex items-baseline gap-2">
+                                    <span id="saver-price" class="font-num font-extrabold text-4xl sm:text-[42px] leading-none text-white tabular-nums-clean tracking-tight">25,000</span>
+                                    <span class="font-display font-bold text-sm sm:text-base text-[#38BDF8]">دينار عراقي</span>
+                                </div>
+                                <span id="saver-period-caption" class="text-xs text-slate-300/80 mt-2 block font-medium">اشتراك لمدة سنة</span>
+                            </div>
+                            <span class="text-xs font-bold px-3 py-1.5 rounded-xl bg-[#0EA5E9]/12 text-[#7DD3FC] border border-[#38BDF8]/25 shrink-0">
+                                جهاز واحد
+                            </span>
+                        </div>
+
+                        <!-- المميزات بأيقونات SVG موحدة السماكة (stroke-width: 1.8) -->
+                        <ul class="space-y-3.5 pt-1 text-sm sm:text-[15px] text-slate-200">
+                            <li class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-xl bg-[#0EA5E9]/12 border border-[#38BDF8]/25 flex items-center justify-center text-[#38BDF8] shrink-0">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><polygon points="12 8 15.5 10.6 14.2 14.8 9.8 14.8 8.5 10.6 12 8"></polygon></svg>
+                                </span>
+                                <span>قنوات رياضية</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-xl bg-[#0EA5E9]/12 border border-[#38BDF8]/25 flex items-center justify-center text-[#38BDF8] shrink-0">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a13 13 0 0 1 3.5 9 13 13 0 0 1-3.5 9 13 13 0 0 1-3.5-9 13 13 0 0 1 3.5-9z"></path></svg>
+                                </span>
+                                <span>قنوات إخبارية</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-xl bg-[#0EA5E9]/12 border border-[#38BDF8]/25 flex items-center justify-center text-[#38BDF8] shrink-0">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="8" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="16" y2="21"></line></svg>
+                                </span>
+                                <span>أفلام ومسلسلات</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-xl bg-[#0EA5E9]/12 border border-[#38BDF8]/25 flex items-center justify-center text-[#38BDF8] shrink-0">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 14.9 8.1 21.6 9 16.8 13.7 17.9 20.4 12 17.2 6.1 20.4 7.2 13.7 2.4 9 9.1 8.1 12 2"></polygon></svg>
+                                </span>
+                                <span>قنوات أطفال</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-xl bg-[#0EA5E9]/12 border border-[#38BDF8]/25 flex items-center justify-center text-[#38BDF8] shrink-0">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9.5z"></path></svg>
+                                </span>
+                                <span>محتوى عائلي</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-xl bg-[#0EA5E9]/16 border border-[#38BDF8]/35 flex items-center justify-center text-[#38BDF8] shrink-0">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8"></path><path d="M12 16v4"></path></svg>
+                                </span>
+                                <span class="font-bold text-sky-200">جهاز واحد فقط</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- زر الاشتراك المتدرج والمضيء -->
+                    <div class="relative z-10 pt-7 mt-7 border-t border-white/10">
+                        <a id="saver-cta"
+                           href="https://wa.me/9647803734579?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%81%D9%84%D8%A7%D8%AD%20%D8%B3%D8%AA%D9%88%D8%B1%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D9%81%D9%8A%20%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%AA%D9%88%D9%81%D9%8A%D8%B1%20%D9%84%D9%85%D8%AF%D8%A9%20%D8%B3%D9%86%D8%A9%D8%8C%20%D8%A8%D8%B3%D8%B9%D8%B1%2025%2C000%20%D8%AF.%D8%B9%D8%8C%20%D9%88%D8%B9%D8%AF%D8%AF%20%D8%A7%D9%84%D8%A3%D8%AC%D9%87%D8%B2%D8%A9%20%D8%AC%D9%87%D8%A7%D8%B2%20%D9%88%D8%A7%D8%AD%D8%AF.%20%D8%A3%D8%B1%D8%AC%D9%88%20%D8%A5%D9%83%D9%85%D8%A7%D9%84%20%D8%A7%D9%84%D8%AA%D9%81%D8%B9%D9%8A%D9%84."
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="cta-enterprise group w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-gradient-to-l from-[#0284C7] via-[#0EA5E9] to-[#38BDF8] text-[#030712] font-display font-black text-base sm:text-lg shadow-[0_12px_30px_rgba(14,165,233,0.30),inset_0_1px_0_rgba(255,255,255,0.45)] hover:shadow-[0_16px_38px_rgba(14,165,233,0.48),inset_0_1px_0_rgba(255,255,255,0.65)] transition-all duration-300">
+                            <span>اشترك الآن</span>
+                            <svg class="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- -------------------------------------------------------------
+                     2. الباقة العادية (مميزة بصرياً بأناقة دون مبالغة - جهازان)
+                -------------------------------------------------------------- -->
+                <article class="reveal-item glass-card glass-standard p-7 sm:p-8 flex flex-col justify-between">
+                    <!-- شريط إضاءة علوي متوهج -->
+                    <div class="standard-rim-glow pointer-events-none absolute top-0 inset-x-10 h-[2px] bg-gradient-to-r from-transparent via-[#38BDF8] to-transparent"></div>
+                    <div class="pointer-events-none absolute -top-28 inset-x-0 mx-auto w-72 h-56 rounded-full bg-[#007BFF]/22 blur-[75px]"></div>
+
+                    <div class="relative z-10 space-y-6">
+                        <!-- الشارات البارزة + مؤشر الجهازين -->
+                        <div class="flex items-center justify-between gap-2 flex-wrap">
+                            <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gradient-to-l from-[#007BFF] to-[#38BDF8] text-[#030712] font-display font-black text-xs shadow-[0_0_18px_rgba(0,123,255,0.45)]">
+                                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                <span>اختيار مميز</span>
+                            </span>
+
+                            <!-- رمز شاشتين + جهازان -->
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#007BFF]/20 border border-[#38BDF8]/35 text-sky-200 text-xs font-bold">
+                                <svg class="w-4 h-4 text-[#38BDF8] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <rect x="2" y="3" width="14" height="10" rx="2"></rect>
+                                    <rect x="8" y="9" width="14" height="10" rx="2" fill="#071126"></rect>
+                                </svg>
+                                <span>جهازان</span>
+                            </div>
+                        </div>
+
+                        <!-- اسم الباقة -->
+                        <div class="pt-0.5">
+                            <h2 class="font-display font-black text-2xl sm:text-[30px] leading-tight text-white tracking-tight">الباقة العادية</h2>
+                            <p class="text-xs sm:text-sm text-sky-200/80 mt-1.5">التوازن المثالي للعائلة والمشاهدة على شاشتين</p>
+                        </div>
+
+                        <!-- أزرار اختيار المدة الأربعة (Segmented Control) -->
+                        <div class="space-y-2.5">
+                            <div class="flex items-center justify-between text-xs text-sky-200/85 font-semibold">
+                                <span>مدة الاشتراك</span>
+                                <span id="standard-duration-hint" class="text-[#38BDF8] font-bold">سنة كاملة</span>
+                            </div>
+                            <div class="grid grid-cols-4 gap-1.5 p-1.5 rounded-2xl bg-[#030714]/85 border border-[#007BFF]/35 shadow-inner" role="group" aria-label="اختر مدة الباقة العادية">
+                                <button type="button" onclick="updatePlan('standard', 'month', this)"
+                                        class="tier-btn standard-tab py-2.5 px-1 rounded-xl font-display font-bold text-xs sm:text-sm text-slate-300 hover:text-white hover:bg-white/[0.04] transition-all duration-200">
+                                    شهر
+                                </button>
+                                <button type="button" onclick="updatePlan('standard', '3months', this)"
+                                        class="tier-btn standard-tab py-2.5 px-1 rounded-xl font-display font-bold text-xs sm:text-sm text-slate-300 hover:text-white hover:bg-white/[0.04] transition-all duration-200">
+                                    3 أشهر
+                                </button>
+                                <button type="button" onclick="updatePlan('standard', '6months', this)"
+                                        class="tier-btn standard-tab py-2.5 px-1 rounded-xl font-display font-bold text-xs sm:text-sm text-slate-300 hover:text-white hover:bg-white/[0.04] transition-all duration-200">
+                                    6 أشهر
+                                </button>
+                                <button type="button" onclick="updatePlan('standard', 'year', this)"
+                                        class="tier-btn standard-tab py-2.5 px-1 rounded-xl font-display font-extrabold text-xs sm:text-sm bg-gradient-to-l from-[#007BFF] to-[#38BDF8] text-[#030712] shadow-[0_0_20px_rgba(0,123,255,0.55)] transition-all duration-200">
+                                    سنة
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- صندوق السعر المعماري المصقول -->
+                        <div id="standard-price-box" class="relative rounded-2xl bg-gradient-to-br from-[#007BFF]/14 to-[#0EA5E9]/[0.05] border border-[#38BDF8]/35 p-5 flex items-center justify-between shadow-[inset_0_1px_0_rgba(186,230,253,0.16)]">
+                            <div>
+                                <div class="flex items-baseline gap-2">
+                                    <span id="standard-price" class="font-num font-extrabold text-4xl sm:text-[42px] leading-none text-white tabular-nums-clean tracking-tight">27,000</span>
+                                    <span class="font-display font-bold text-sm sm:text-base text-[#38BDF8]">دينار عراقي</span>
+                                </div>
+                                <span id="standard-period-caption" class="text-xs text-sky-200/80 mt-2 block font-medium">اشتراك لمدة سنة</span>
+                            </div>
+                            <span class="text-xs font-bold px-3 py-1.5 rounded-xl bg-[#007BFF]/25 text-sky-100 border border-[#38BDF8]/35 shrink-0">
+                                جهازان
+                            </span>
+                        </div>
+
+                        <!-- المميزات بأيقونات SVG موحدة السماكة (stroke-width: 1.8) -->
+                        <ul class="space-y-3.5 pt-1 text-sm sm:text-[15px] text-slate-100">
+                            <li class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-xl bg-[#007BFF]/20 border border-[#38BDF8]/30 flex items-center justify-center text-[#38BDF8] shrink-0">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><polygon points="12 8 15.5 10.6 14.2 14.8 9.8 14.8 8.5 10.6 12 8"></polygon></svg>
+                                </span>
+                                <span>قنوات رياضية</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-xl bg-[#007BFF]/20 border border-[#38BDF8]/30 flex items-center justify-center text-[#38BDF8] shrink-0">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a13 13 0 0 1 3.5 9 13 13 0 0 1-3.5 9 13 13 0 0 1-3.5-9 13 13 0 0 1 3.5-9z"></path></svg>
+                                </span>
+                                <span>قنوات إخبارية</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-xl bg-[#007BFF]/20 border border-[#38BDF8]/30 flex items-center justify-center text-[#38BDF8] shrink-0">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="8" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="16" y2="21"></line></svg>
+                                </span>
+                                <span>أفلام ومسلسلات</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-xl bg-[#007BFF]/20 border border-[#38BDF8]/30 flex items-center justify-center text-[#38BDF8] shrink-0">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 14.9 8.1 21.6 9 16.8 13.7 17.9 20.4 12 17.2 6.1 20.4 7.2 13.7 2.4 9 9.1 8.1 12 2"></polygon></svg>
+                                </span>
+                                <span>قنوات أطفال</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-xl bg-[#007BFF]/20 border border-[#38BDF8]/30 flex items-center justify-center text-[#38BDF8] shrink-0">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9.5z"></path></svg>
+                                </span>
+                                <span>محتوى عائلي</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-xl bg-[#007BFF]/25 border border-[#38BDF8]/45 flex items-center justify-center text-[#38BDF8] shrink-0">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="14" height="10" rx="2"></rect><rect x="8" y="9" width="14" height="10" rx="2"></rect></svg>
+                                </span>
+                                <span class="font-bold text-[#38BDF8]">تشغيل على جهازين</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- زر الاشتراك المتدرج والمضيء -->
+                    <div class="relative z-10 pt-7 mt-7 border-t border-[#007BFF]/30">
+                        <a id="standard-cta"
+                           href="https://wa.me/9647803734579?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%81%D9%84%D8%A7%D8%AD%20%D8%B3%D8%AA%D9%88%D8%B1%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%B9%D8%A7%D8%AF%D9%8A%D8%A9%20%D9%84%D9%85%D8%AF%D8%A9%20%D8%B3%D9%86%D8%A9%D8%8C%20%D8%A8%D8%B3%D8%B9%D8%B1%2027%2C000%20%D8%AF.%D8%B9%D8%8C%20%D9%88%D8%B9%D8%AF%D8%AF%20%D8%A7%D9%84%D8%A3%D8%AC%D9%87%D8%B2%D8%A9%20%D8%AC%D9%87%D8%A7%D8%B2%D8%A7%D9%86.%20%D8%A3%D8%B1%D8%AC%D9%88%20%D8%A5%D9%83%D9%85%D8%A7%D9%84%20%D8%A7%D9%84%D8%AA%D9%81%D8%B9%D9%8A%D9%84."
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="cta-enterprise group w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-gradient-to-l from-[#0066FF] via-[#008CFF] to-[#38BDF8] text-[#030712] font-display font-black text-base sm:text-lg shadow-[0_14px_34px_rgba(0,123,255,0.42),inset_0_1px_0_rgba(255,255,255,0.55)] hover:shadow-[0_18px_42px_rgba(14,165,233,0.58),inset_0_1px_0_rgba(255,255,255,0.75)] transition-all duration-300">
+                            <span>اشترك الآن</span>
+                            <svg class="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- -------------------------------------------------------------
+                     3. الباقة المفتوحة (بنفسجي داكن فخم ولمسات ذهبية راقية - 3 أجهزة)
+                -------------------------------------------------------------- -->
+                <article class="reveal-item glass-card glass-open p-7 sm:p-8 flex flex-col justify-between">
+                    <div class="pointer-events-none absolute -top-24 -left-24 w-60 h-60 rounded-full bg-[#7C3AED]/20 blur-[70px]"></div>
+                    <div class="pointer-events-none absolute -bottom-24 -right-24 w-56 h-56 rounded-full bg-[#D4AF37]/14 blur-[70px]"></div>
+
+                    <div class="relative z-10 space-y-6">
+                        <!-- شارة PREMIUM ومؤشر الثلاث شاشات -->
+                        <div class="flex items-center justify-between gap-3">
+                            <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gradient-to-l from-[#B45309] via-[#D4AF37] to-[#FBBF24] text-[#090602] font-num font-extrabold text-xs tracking-wider shadow-[0_0_18px_rgba(212,175,55,0.38)]">
+                                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"></path></svg>
+                                <span>PREMIUM</span>
+                            </span>
+
+                            <!-- رمز 3 شاشات + 3 أجهزة -->
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7C3AED]/20 border border-[#D4AF37]/35 text-amber-200 text-xs font-bold">
+                                <svg class="w-4 h-4 text-[#FBBF24] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <rect x="2" y="3" width="9" height="7" rx="1.5"></rect>
+                                    <rect x="13" y="3" width="9" height="7" rx="1.5"></rect>
+                                    <rect x="7.5" y="13" width="9" height="7" rx="1.5"></rect>
+                                </svg>
+                                <span>3 أجهزة</span>
+                            </div>
+                        </div>
+
+                        <!-- اسم الباقة -->
+                        <div class="pt-0.5">
+                            <h2 class="font-display font-black text-2xl sm:text-[30px] leading-tight bg-gradient-to-l from-[#FDE68A] via-[#FBBF24] to-[#E9D5FF] bg-clip-text text-transparent tracking-tight">
+                                الباقة المفتوحة
+                            </h2>
+                            <p class="text-xs sm:text-sm text-purple-200/75 mt-1.5">الوصول الكامل والشامل لجميع القنوات والمكتبات</p>
+                        </div>
+
+                        <!-- أزرار اختيار المدة الأربعة (Segmented Control) -->
+                        <div class="space-y-2.5">
+                            <div class="flex items-center justify-between text-xs text-purple-200/80 font-semibold">
+                                <span>مدة الاشتراك</span>
+                                <span id="open-duration-hint" class="text-[#FBBF24] font-bold">سنة كاملة</span>
+                            </div>
+                            <div class="grid grid-cols-4 gap-1.5 p-1.5 rounded-2xl bg-[#090512]/85 border border-[#D4AF37]/28 shadow-inner" role="group" aria-label="اختر مدة الباقة المفتوحة">
+                                <button type="button" onclick="updatePlan('open', 'month', this)"
+                                        class="tier-btn open-tab py-2.5 px-1 rounded-xl font-display font-bold text-xs sm:text-sm text-slate-300 hover:text-white hover:bg-white/[0.04] transition-all duration-200">
+                                    شهر
+                                </button>
+                                <button type="button" onclick="updatePlan('open', '3months', this)"
+                                        class="tier-btn open-tab py-2.5 px-1 rounded-xl font-display font-bold text-xs sm:text-sm text-slate-300 hover:text-white hover:bg-white/[0.04] transition-all duration-200">
+                                    3 أشهر
+                                </button>
+                                <button type="button" onclick="updatePlan('open', '6months', this)"
+                                        class="tier-btn open-tab py-2.5 px-1 rounded-xl font-display font-bold text-xs sm:text-sm text-slate-300 hover:text-white hover:bg-white/[0.04] transition-all duration-200">
+                                    6 أشهر
+                                </button>
+                                <button type="button" onclick="updatePlan('open', 'year', this)"
+                                        class="tier-btn open-tab py-2.5 px-1 rounded-xl font-display font-extrabold text-xs sm:text-sm bg-gradient-to-l from-[#B45309] via-[#D4AF37] to-[#FBBF24] text-[#090602] shadow-[0_0_18px_rgba(212,175,55,0.48)] transition-all duration-200">
+                                    سنة
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- صندوق السعر المعماري المصقول -->
+                        <div id="open-price-box" class="relative rounded-2xl bg-gradient-to-br from-[#7C3AED]/15 to-[#D4AF37]/10 border border-[#D4AF37]/32 p-5 flex items-center justify-between shadow-[inset_0_1px_0_rgba(253,230,138,0.14)]">
+                            <div>
+                                <div class="flex items-baseline gap-2">
+                                    <span id="open-price" class="font-num font-extrabold text-4xl sm:text-[42px] leading-none text-white tabular-nums-clean tracking-tight">45,000</span>
+                                    <span class="font-display font-bold text-sm sm:text-base text-[#FBBF24]">دينار عراقي</span>
+                                </div>
+                                <span id="open-period-caption" class="text-xs text-purple-200/80 mt-2 block font-medium">اشتراك لمدة سنة</span>
+                            </div>
+                            <span class="text-xs font-bold px-3 py-1.5 rounded-xl bg-[#D4AF37]/15 text-[#FDE68A] border border-[#D4AF37]/30 shrink-0">
+                                3 أجهزة
+                            </span>
+                        </div>
+
+                        <!-- المميزات بأيقونات SVG موحدة السماكة (stroke-width: 1.8) -->
+                        <ul class="space-y-3 pt-1 text-sm sm:text-[15px] text-slate-100">
+                            <li class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-xl bg-[#7C3AED]/20 border border-[#D4AF37]/28 flex items-center justify-center text-[#FBBF24] shrink-0">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><polygon points="12 8 15.5 10.6 14.2 14.8 9.8 14.8 8.5 10.6 12 8"></polygon></svg>
+                                </span>
+                                <span>قنوات رياضية</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-xl bg-[#7C3AED]/20 border border-[#D4AF37]/28 flex items-center justify-center text-[#FBBF24] shrink-0">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a13 13 0 0 1 3.5 9 13 13 0 0 1-3.5 9 13 13 0 0 1-3.5-9 13 13 0 0 1 3.5-9z"></path></svg>
+                                </span>
+                                <span>قنوات إخبارية</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-xl bg-[#7C3AED]/20 border border-[#D4AF37]/28 flex items-center justify-center text-[#FBBF24] shrink-0">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="8" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="16" y2="21"></line></svg>
+                                </span>
+                                <span>أفلام ومسلسلات</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-xl bg-[#7C3AED]/20 border border-[#D4AF37]/28 flex items-center justify-center text-[#FBBF24] shrink-0">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 14.9 8.1 21.6 9 16.8 13.7 17.9 20.4 12 17.2 6.1 20.4 7.2 13.7 2.4 9 9.1 8.1 12 2"></polygon></svg>
+                                </span>
+                                <span>قنوات أطفال</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-xl bg-[#7C3AED]/20 border border-[#D4AF37]/28 flex items-center justify-center text-[#FBBF24] shrink-0">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9.5z"></path></svg>
+                                </span>
+                                <span>محتوى عائلي</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-xl bg-[#7C3AED]/25 border border-[#D4AF37]/42 flex items-center justify-center text-[#FBBF24] shrink-0">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="9" height="7" rx="1.5"></rect><rect x="13" y="3" width="9" height="7" rx="1.5"></rect><rect x="7.5" y="13" width="9" height="7" rx="1.5"></rect></svg>
+                                </span>
+                                <span class="font-bold text-amber-200">تشغيل على 3 أجهزة</span>
+                            </li>
+                            <li class="flex items-center justify-between gap-2 pt-0.5">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-7 h-7 rounded-xl bg-rose-500/15 border border-rose-500/38 flex items-center justify-center text-rose-400 shrink-0">
+                                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                    </span>
+                                    <span>محتوى +18 <span class="text-[11px] text-rose-300/80">(للبالغين فقط)</span></span>
+                                </div>
+                                <span class="font-num font-extrabold text-[11px] px-2.5 py-0.5 rounded-lg bg-rose-500/20 border border-rose-500/45 text-rose-300 shadow-[0_0_12px_rgba(244,63,94,0.18)]">
+                                    +18
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- زر الاشتراك المتدرج والمضيء (بنفسجي وذهبي) -->
+                    <div class="relative z-10 pt-7 mt-7 border-t border-[#D4AF37]/25">
+                        <a id="open-cta"
+                           href="https://wa.me/9647803734579?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%81%D9%84%D8%A7%D8%AD%20%D8%B3%D8%AA%D9%88%D8%B1%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D9%85%D9%81%D8%AA%D9%88%D8%AD%D8%A9%20%D9%84%D9%85%D8%AF%D8%A9%20%D8%B3%D9%86%D8%A9%D8%8C%20%D8%A8%D8%B3%D8%B9%D8%B1%2045%2C000%20%D8%AF.%D8%B9%D8%8C%20%D9%88%D8%B9%D8%AF%D8%AF%20%D8%A7%D9%84%D8%A3%D8%AC%D9%87%D8%B2%D8%A9%203%20%D8%A3%D8%AC%D9%87%D8%B2%D8%A9.%20%D8%A3%D8%B1%D8%AC%D9%88%20%D8%A5%D9%83%D9%85%D8%A7%D9%84%20%D8%A7%D9%84%D8%AA%D9%81%D8%B9%D9%8A%D9%84."
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="cta-enterprise group w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-gradient-to-l from-[#7C3AED] via-[#B45309] to-[#D4AF37] text-white font-display font-black text-base sm:text-lg shadow-[0_14px_34px_rgba(124,58,237,0.34),0_8px_22px_rgba(212,175,55,0.24),inset_0_1px_0_rgba(255,255,255,0.35)] hover:shadow-[0_18px_42px_rgba(212,175,55,0.44),inset_0_1px_0_rgba(255,255,255,0.55)] transition-all duration-300">
+                            <span>اشترك الآن</span>
+                            <svg class="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
         </div>
-      </article>
-
-      <article class="falah-plan-card falah-plan-featured">
-        <div class="falah-plan-label">الباقة المميزة</div>
-        <h3>الباقة العادية</h3>
-        <div class="falah-device-count">جهازان</div>
-        <p>تجربة مشاهدة مميزة لك ولأحد أفراد العائلة</p>
-        <div class="falah-price-grid">
-          <button class="falah-price-option" onclick="selectSubscription('العادية','شهر',6000)"><strong>شهر</strong><b>6,000</b><small>دينار عراقي</small></button>
-          <button class="falah-price-option" onclick="selectSubscription('العادية','3 أشهر',12000)"><strong>3 أشهر</strong><b>12,000</b><small>دينار عراقي</small></button>
-          <button class="falah-price-option" onclick="selectSubscription('العادية','6 أشهر',17000)"><strong>6 أشهر</strong><b>17,000</b><small>دينار عراقي</small></button>
-          <button class="falah-price-option" onclick="selectSubscription('العادية','سنة',27000)"><strong>سنة</strong><b>27,000</b><small>دينار عراقي</small></button>
-        </div>
-      </article>
-
-      <article class="falah-plan-card">
-        <div class="falah-plan-label">تجربة موسعة</div>
-        <h3>الباقة المفتوحة</h3>
-        <div class="falah-device-count">3 أجهزة</div>
-        <p>محتوى متنوع مع إمكانية مشاهدة قنوات الكبار +18</p>
-        <div class="falah-price-grid">
-          <button class="falah-price-option" onclick="selectSubscription('المفتوحة','شهر',10000)"><strong>شهر</strong><b>10,000</b><small>دينار عراقي</small></button>
-          <button class="falah-price-option" onclick="selectSubscription('المفتوحة','3 أشهر',20000)"><strong>3 أشهر</strong><b>20,000</b><small>دينار عراقي</small></button>
-          <button class="falah-price-option" onclick="selectSubscription('المفتوحة','6 أشهر',30000)"><strong>6 أشهر</strong><b>30,000</b><small>دينار عراقي</small></button>
-          <button class="falah-price-option" onclick="selectSubscription('المفتوحة','سنة',45000)"><strong>سنة</strong><b>45,000</b><small>دينار عراقي</small></button>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<div class="order-modal" id="orderModal" onclick="if(event.target===this)closeSubscriptionOrder()">
-<div class="order-box">
-<button class="order-close" type="button" onclick="closeSubscriptionOrder()">×</button>
-<h3>طلب اشتراك فلاح ستور</h3>
-<form id="subscriptionOrderForm" onsubmit="sendSubscriptionOrder(event)">
-<label for="customerName">اسم الزبون</label>
-<input id="customerName" type="text" required maxlength="80" placeholder="اكتب اسمك">
-<label for="customerPhone">رقم الهاتف</label>
-<input id="customerPhone" type="tel" required maxlength="20" placeholder="07xxxxxxxxx">
-<div class="order-summary" id="orderSummary"></div>
-<label for="paymentMethod">طريقة الدفع</label>
-<select id="paymentMethod" required>
-<option value="">اختر طريقة الدفع</option>
-<option value="زين كاش">زين كاش</option>
-<option value="ماستر كارد">ماستر كارد</option>
-<option value="رصيد آسيا سيل">رصيد آسيا سيل</option>
-</select>
-<button class="order-submit" type="submit">إرسال الطلب عبر واتساب</button>
-</form>
-</div>
-</div>
-
+    </section>
 
 <!-- ===== FALAH STORE ANIMATED MOVIE SLIDER ===== -->
   <section class="falah-slider-wrapper" id="falahMovieSliderSection">
@@ -1911,65 +2532,6 @@ button.textContent='تعذر النسخ';
 }
 }
 
-
-// FALAH STORE SUBSCRIPTION ORDER
-const subscriptionWhatsApp = "9647803734579";
-let selectedSubscription = null;
-
-function toggleSubscriptionPrices(){
-  document.getElementById("pricesPanel").classList.toggle("open");
-}
-
-function selectSubscription(plan, duration, price){
-  selectedSubscription = {plan, duration, price};
-  const usd = (price / 1700).toFixed(2);
-  document.getElementById("orderSummary").innerHTML =
-    "<strong>الباقة:</strong> " + plan +
-    "<br><strong>المدة:</strong> " + duration +
-    "<br><strong>السعر:</strong> " + price.toLocaleString("en-US") +
-    " دينار عراقي ($" + usd + ")";
-  document.getElementById("orderModal").classList.add("open");
-}
-
-function closeSubscriptionOrder(){
-  document.getElementById("orderModal").classList.remove("open");
-}
-
-function sendSubscriptionOrder(event){
-  event.preventDefault();
-
-  if(!selectedSubscription){
-    alert("يرجى اختيار باقة ومدة الاشتراك أولاً");
-    return;
-  }
-
-  const name = document.getElementById("customerName").value.trim();
-  const phone = document.getElementById("customerPhone").value.trim();
-  const payment = document.getElementById("paymentMethod").value;
-
-  if(!name || !phone || !payment){
-    alert("يرجى إكمال جميع المعلومات");
-    return;
-  }
-
-  const price = selectedSubscription.price;
-  const usd = (price / 1700).toFixed(2);
-
-  const message =
-    "طلب اشتراك جديد - فلاح ستور\n" +
-    "اسم الزبون: " + name + "\n" +
-    "رقم الهاتف: " + phone + "\n" +
-    "الباقة: " + selectedSubscription.plan + "\n" +
-    "المدة: " + selectedSubscription.duration + "\n" +
-    "السعر: " + price.toLocaleString("en-US") + " دينار عراقي\n" +
-    "بالدولار: $" + usd + "\n" +
-    "طريقة الدفع: " + payment;
-
-  const url = "https://wa.me/" + subscriptionWhatsApp +
-    "?text=" + encodeURIComponent(message);
-
-  window.location.href = url;
-}
 
 </script>
 
@@ -2347,5 +2909,129 @@ function sendSubscriptionOrder(event){
       });
     }
   </script>
+<script>
+        const WHATSAPP_NUMBER = '9647803734579';
+
+        // بيانات الأسعار الدقيقة لكل باقة ولكل مدة
+        const SUBSCRIPTION_PLANS = {
+            saver: {
+                name: 'باقة التوفير',
+                devices: 'جهاز واحد',
+                theme: 'blue',
+                tiers: {
+                    month:     { duration: 'شهر',    caption: 'اشتراك لمدة شهر',   price: '5,000' },
+                    '3months': { duration: '3 أشهر', caption: 'اشتراك لمدة 3 أشهر', price: '10,000' },
+                    '6months': { duration: '6 أشهر', caption: 'اشتراك لمدة 6 أشهر', price: '15,000' },
+                    year:      { duration: 'سنة',    caption: 'اشتراك لمدة سنة',    price: '25,000' }
+                }
+            },
+            standard: {
+                name: 'الباقة العادية',
+                devices: 'جهازان',
+                theme: 'blue',
+                tiers: {
+                    month:     { duration: 'شهر',    caption: 'اشتراك لمدة شهر',   price: '6,000' },
+                    '3months': { duration: '3 أشهر', caption: 'اشتراك لمدة 3 أشهر', price: '12,000' },
+                    '6months': { duration: '6 أشهر', caption: 'اشتراك لمدة 6 أشهر', price: '17,000' },
+                    year:      { duration: 'سنة',    caption: 'اشتراك لمدة سنة',    price: '27,000' }
+                }
+            },
+            open: {
+                name: 'الباقة المفتوحة',
+                devices: '3 أجهزة',
+                theme: 'gold',
+                tiers: {
+                    month:     { duration: 'شهر',    caption: 'اشتراك لمدة شهر',   price: '10,000' },
+                    '3months': { duration: '3 أشهر', caption: 'اشتراك لمدة 3 أشهر', price: '20,000' },
+                    '6months': { duration: '6 أشهر', caption: 'اشتراك لمدة 6 أشهر', price: '30,000' },
+                    year:      { duration: 'سنة',    caption: 'اشتراك لمدة سنة',    price: '45,000' }
+                }
+            }
+        };
+
+        /**
+         * تحديث المدة المختارة داخل البطاقة مع حركة انتقالية للسعر وتحديث رابط الواتساب فوراً
+         */
+        function updatePlan(planKey, tierKey, clickedBtn) {
+            const plan = SUBSCRIPTION_PLANS[planKey];
+            if (!plan || !plan.tiers[tierKey]) return;
+            const tier = plan.tiers[tierKey];
+
+            // 1. تحديث مظهر أزرار المدة داخل البطاقة المعنية
+            const tabs = document.querySelectorAll(`.${planKey}-tab`);
+            tabs.forEach(tab => {
+                tab.classList.remove(
+                    'font-extrabold',
+                    'bg-gradient-to-l',
+                    'from-[#0284C7]', 'to-[#38BDF8]', 'text-[#030712]', 'shadow-[0_0_18px_rgba(14,165,233,0.45)]',
+                    'from-[#007BFF]', 'shadow-[0_0_20px_rgba(0,123,255,0.55)]',
+                    'from-[#B45309]', 'via-[#D4AF37]', 'to-[#FBBF24]', 'text-[#090602]', 'shadow-[0_0_18px_rgba(212,175,55,0.48)]'
+                );
+                tab.classList.add('font-bold', 'text-slate-300', 'hover:text-white', 'hover:bg-white/[0.04]');
+            });
+
+            clickedBtn.classList.remove('font-bold', 'text-slate-300', 'hover:text-white', 'hover:bg-white/[0.04]');
+            clickedBtn.classList.add('font-extrabold', 'bg-gradient-to-l');
+
+            if (planKey === 'open') {
+                clickedBtn.classList.add('from-[#B45309]', 'via-[#D4AF37]', 'to-[#FBBF24]', 'text-[#090602]', 'shadow-[0_0_18px_rgba(212,175,55,0.48)]');
+            } else if (planKey === 'standard') {
+                clickedBtn.classList.add('from-[#007BFF]', 'to-[#38BDF8]', 'text-[#030712]', 'shadow-[0_0_20px_rgba(0,123,255,0.55)]');
+            } else {
+                clickedBtn.classList.add('from-[#0284C7]', 'to-[#38BDF8]', 'text-[#030712]', 'shadow-[0_0_18px_rgba(14,165,233,0.45)]');
+            }
+
+            // 2. تحديث النصوص والسعر بحركة انتقال ناعمة
+            const priceEl = document.getElementById(`${planKey}-price`);
+            const hintEl = document.getElementById(`${planKey}-duration-hint`);
+            const captionEl = document.getElementById(`${planKey}-period-caption`);
+            const priceBoxEl = document.getElementById(`${planKey}-price-box`);
+
+            if (hintEl) hintEl.textContent = tier.duration === 'سنة' ? 'سنة كاملة' : tier.duration;
+            if (captionEl) captionEl.textContent = tier.caption;
+
+            if (priceEl) {
+                priceEl.textContent = tier.price;
+                priceEl.classList.remove('price-animate');
+                void priceEl.offsetWidth;
+                priceEl.classList.add('price-animate');
+            }
+
+            if (priceBoxEl) {
+                const pulseClass = plan.theme === 'gold' ? 'price-box-pulse-gold' : 'price-box-pulse-blue';
+                priceBoxEl.classList.remove('price-box-pulse-blue', 'price-box-pulse-gold');
+                void priceBoxEl.offsetWidth;
+                priceBoxEl.classList.add(pulseClass);
+            }
+
+            // 3. تحديث رابط الواتساب بالرسالة المطلوبة بدقة
+            const ctaBtn = document.getElementById(`${planKey}-cta`);
+            if (ctaBtn) {
+                const whatsappMessage = `مرحباً فلاح ستور، أرغب بالاشتراك في ${plan.name} لمدة ${tier.duration}، بسعر ${tier.price} د.ع، وعدد الأجهزة ${plan.devices}. أرجو إكمال التفعيل.`;
+                ctaBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
+            }
+        }
+
+        // حركة ظهور البطاقات بنعومة عند التمرير
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.reveal-item');
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach((entry, index) => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => {
+                                entry.target.classList.add('is-visible');
+                            }, index * 90);
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                items.forEach(item => observer.observe(item));
+            } else {
+                items.forEach(item => item.classList.add('is-visible'));
+            }
+        });
+    </script>
 </body>
 </html>
