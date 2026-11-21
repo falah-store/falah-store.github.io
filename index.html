@@ -824,6 +824,474 @@ box-shadow:0 10px 30px #078cff85;
 }
 
 </style>
+  <style>
+
+    .falah-slider-wrapper,
+    .falah-modal-backdrop {
+      --bg-dark: #05060a;
+      --card-bg: #0b0e17;
+      --neon-blue: #00f0ff;
+      --neon-blue-dim: rgba(0, 240, 255, 0.25);
+      --neon-glow: 0 0 15px rgba(0, 240, 255, 0.65), 0 0 35px rgba(0, 240, 255, 0.3);
+      --text-main: #ffffff;
+      --text-muted: #94a3b8;
+    }
+
+    
+
+    
+
+    /* ===== SLIDER SECTION ===== */
+    .falah-slider-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 1400px;
+      margin: 25px auto;
+      padding: 18px;
+      background: radial-gradient(circle at top center, #0d1629 0%, #05060a 75%);
+      border: 1.5px solid var(--neon-blue);
+      border-radius: 20px;
+      box-shadow: var(--neon-glow);
+      overflow: hidden;
+    }
+
+    .falah-slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+    }
+
+    .falah-brand-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .falah-brand-title h2 {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: #fff;
+      text-shadow: 0 0 12px rgba(0, 240, 255, 0.8);
+      letter-spacing: 0.5px;
+    }
+
+    .falah-badge {
+      background: rgba(0, 240, 255, 0.12);
+      color: var(--neon-blue);
+      border: 1px solid var(--neon-blue);
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+    }
+
+    .falah-admin-trigger {
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.18), rgba(0, 140, 255, 0.25));
+      color: var(--neon-blue);
+      border: 1.5px solid var(--neon-blue);
+      padding: 8px 18px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.35);
+    }
+
+    .falah-admin-trigger:hover {
+      background: var(--neon-blue);
+      color: #030712;
+      box-shadow: 0 0 22px var(--neon-blue);
+      transform: translateY(-2px);
+    }
+
+    /* Progress Bar */
+    .falah-progress-bar {
+      width: 100%;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .falah-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--neon-blue);
+      box-shadow: 0 0 10px var(--neon-blue);
+      transition: width 0.1s linear;
+    }
+
+    /* Viewport & Track */
+    .falah-viewport {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      touch-action: pan-y;
+    }
+
+    .falah-track {
+      display: flex;
+      gap: 18px;
+      transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+
+    .falah-slide-card {
+      flex: 0 0 calc(20% - 14.4px);
+      min-width: calc(20% - 14.4px);
+      background: var(--card-bg);
+      border: 1.5px solid rgba(0, 240, 255, 0.35);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      transition: all 0.4s ease;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .falah-slide-card:hover,
+    .falah-slide-card.active-card {
+      border-color: var(--neon-blue);
+      box-shadow: 0 0 22px rgba(0, 240, 255, 0.55);
+      transform: translateY(-5px);
+    }
+
+    .falah-poster-box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      overflow: hidden;
+      background: #080b12;
+    }
+
+    .falah-poster-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 4.5s ease-out;
+    }
+
+    .falah-slide-card:hover .falah-poster-box img,
+    .falah-slide-card.active-card .falah-poster-box img {
+      transform: scale(1.08);
+    }
+
+    .falah-quality-tag {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(5, 6, 10, 0.85);
+      color: var(--neon-blue);
+      border: 1px solid var(--neon-blue);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.45);
+    }
+
+    .falah-rating-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(5, 6, 10, 0.85);
+      color: #facc15;
+      border: 1px solid rgba(250, 204, 21, 0.5);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    .falah-card-info {
+      padding: 12px;
+      background: linear-gradient(to top, #06080f 60%, rgba(11, 14, 23, 0.92));
+    }
+
+    .falah-card-title {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 4px;
+    }
+
+    .falah-card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--neon-blue);
+      font-weight: 600;
+    }
+
+    /* Navigation Arrows */
+    .falah-nav-btn {
+      position: absolute;
+      top: 52%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(5, 8, 16, 0.88);
+      color: var(--neon-blue);
+      border: 1.5px solid var(--neon-blue);
+      box-shadow: var(--neon-glow);
+      font-size: 1.2rem;
+      font-weight: 900;
+      cursor: pointer;
+      z-index: 15;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+    }
+
+    .falah-nav-btn:hover {
+      background: var(--neon-blue);
+      color: #05060a;
+      box-shadow: 0 0 25px var(--neon-blue);
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    .falah-prev { right: 10px; }
+    .falah-next { left: 10px; }
+
+    /* Dots Indicators */
+    .falah-dots {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 18px;
+    }
+
+    .falah-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(0, 240, 255, 0.25);
+      border: 1px solid rgba(0, 240, 255, 0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .falah-dot.active {
+      width: 28px;
+      background: var(--neon-blue);
+      box-shadow: 0 0 12px var(--neon-blue);
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1200px) {
+      .falah-slide-card {
+        flex: 0 0 calc(25% - 13.5px);
+        min-width: calc(25% - 13.5px);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .falah-slide-card {
+        flex: 0 0 calc(33.333% - 12px);
+        min-width: calc(33.333% - 12px);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .falah-slider-wrapper {
+        padding: 12px;
+        border-radius: 16px;
+      }
+      .falah-slide-card {
+        flex: 0 0 calc(50% - 9px);
+        min-width: calc(50% - 9px);
+      }
+      .falah-nav-btn {
+        width: 38px;
+        height: 38px;
+      }
+    }
+
+    /* ===== ADMIN MODAL ===== */
+    .falah-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 4, 10, 0.88);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+
+    .falah-modal-backdrop.open {
+      display: flex;
+    }
+
+    .falah-modal {
+      width: 100%;
+      max-width: 780px;
+      max-height: 90vh;
+      overflow-y: auto;
+      background: #090d16;
+      border: 1.5px solid var(--neon-blue);
+      border-radius: 20px;
+      box-shadow: 0 0 35px rgba(0, 240, 255, 0.45);
+      padding: 22px;
+      color: #fff;
+    }
+
+    .falah-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(0, 240, 255, 0.25);
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+    }
+
+    .falah-modal-header h3 {
+      color: var(--neon-blue);
+      font-size: 1.2rem;
+      font-weight: 900;
+    }
+
+    .falah-close-btn {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border: 1px solid #ef4444;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .falah-form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .falah-input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .falah-input-group label {
+      font-size: 0.82rem;
+      color: var(--neon-blue);
+      font-weight: 700;
+    }
+
+    .falah-input-group input,
+    .falah-input-group select {
+      background: #0f1626;
+      border: 1px solid rgba(0, 240, 255, 0.35);
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .falah-input-group input:focus,
+    .falah-input-group select:focus {
+      border-color: var(--neon-blue);
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.35);
+    }
+
+    .falah-btn-primary {
+      background: var(--neon-blue);
+      color: #04070d;
+      border: none;
+      padding: 11px 20px;
+      border-radius: 12px;
+      font-weight: 900;
+      font-size: 0.95rem;
+      cursor: pointer;
+      width: 100%;
+      box-shadow: 0 0 16px rgba(0, 240, 255, 0.5);
+      transition: 0.25s;
+    }
+
+    .falah-btn-primary:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+
+    .falah-admin-list {
+      margin-top: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .falah-admin-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: #0e1422;
+      border: 1px solid rgba(0, 240, 255, 0.22);
+      padding: 10px;
+      border-radius: 12px;
+    }
+
+    .falah-admin-item-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .falah-admin-item-info img {
+      width: 44px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid var(--neon-blue);
+    }
+
+    .falah-del-btn {
+      background: rgba(239, 68, 68, 0.2);
+      color: #fca5a5;
+      border: 1px solid #ef4444;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .falah-del-btn:hover {
+      background: #ef4444;
+      color: #fff;
+    }
+
+    .falah-status-msg {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: var(--neon-blue);
+      text-align: center;
+      font-weight: 700;
+    }
+  
+  </style>
 </head>
 <body>
 <section class="falah-top-slider" aria-label="عروض فلاح ستور">
@@ -1012,54 +1480,103 @@ box-shadow:0 10px 30px #078cff85;
 </div>
 
 
-<section id="falah-movie-slider-section" aria-label="أحدث الأفلام والمسلسلات">
-  <div class="cinema-heading">
-    <span class="cinema-kicker">FALAH STORE</span>
-    <h2>أحدث الأفلام والمسلسلات الحصرية</h2>
-    <p>اكتشف أحدث الأعمال السينمائية والمسلسلات</p>
-  </div>
-  <div id="slider-main-frame" class="cinema-main-frame">
-    <div class="cinema-progress"><div id="slide-progress-bar"></div></div>
-    <img id="stage-backdrop-img" class="cinema-backdrop" src="" alt="">
-    <div class="cinema-stage">
-      <div class="cinema-feature">
-        <img id="featured-poster-img" class="cinema-poster" src="" alt="">
-        <div class="cinema-info">
-          <div class="cinema-tags">
-            <span class="cinema-tag" id="featured-type-badge">فيلم</span>
-            <span class="cinema-tag" id="featured-quality-badge">4K HDR</span>
-            <span class="cinema-tag">★ <span id="featured-rating">9.0</span></span>
-          </div>
-          <div class="cinema-meta">
-            <span id="featured-slide-counter">01 / 18</span>
-            <span> • </span><span id="featured-year">2024</span>
-          </div>
-          <h3 id="featured-title">عنوان العمل</h3>
-          <p class="cinema-original" id="featured-subtitle">Original Title</p>
-          <p class="cinema-genre" id="featured-genre">خيال علمي • أكشن</p>
-          <p class="cinema-description" id="featured-desc">وصف العمل السينمائي</p>
-          <div class="cinema-actions">
-            <button id="watch-now-btn" type="button">▶ مشاهدة عبر فلاح ستور</button>
-            <button id="details-btn" class="secondary" type="button">التفاصيل</button>
-          </div>
+<!-- ===== FALAH STORE ANIMATED MOVIE SLIDER ===== -->
+  <section class="falah-slider-wrapper" id="falahMovieSliderSection">
+    <div class="falah-slider-header">
+      <div class="falah-brand-title">
+        <h2>FALAH STORE CINEMA</h2>
+        <span class="falah-badge" id="falahTotalCount">جاري التحميل...</span>
+      </div>
+      <button class="falah-admin-trigger" id="openFalahAdminBtn" style="display:none">
+        <span>⚙️</span>
+        <span>إدارة السلايدر</span>
+      </button>
+    </div>
+
+    <div class="falah-progress-bar">
+      <div class="falah-progress-fill" id="falahProgressFill"></div>
+    </div>
+
+    <div class="falah-viewport" id="falahViewport">
+      <button class="falah-nav-btn falah-prev" id="falahPrevBtn" aria-label="السابق">❯</button>
+      <div class="falah-track" id="falahTrack"></div>
+      <button class="falah-nav-btn falah-next" id="falahNextBtn" aria-label="التالي">❮</button>
+    </div>
+
+    <div class="falah-dots" id="falahDots"></div>
+  </section>
+
+  <!-- ===== CLOUD ADMIN PANEL MODAL ===== -->
+  <div class="falah-modal-backdrop" id="falahAdminModal">
+    <div class="falah-modal">
+      <div class="falah-modal-header">
+        <h3>لوحة التحكم السحابية - FALAH STORE</h3>
+        <button class="falah-close-btn" id="closeFalahAdminBtn">✕</button>
+      </div>
+
+      <!-- PIN Lock Screen -->
+      <div id="falahPinView">
+        <div class="falah-input-group" style="max-width: 320px; margin: 20px auto;">
+          <label>أدخل الرمز السري للوحة التحكم (الافتراضي: 1234)</label>
+          <input type="password" id="falahPinInput" placeholder="••••" />
+          <button class="falah-btn-primary" id="falahVerifyPinBtn" style="margin-top: 10px;">دخول للوحة التحكم</button>
+          <p class="falah-status-msg" id="falahPinError" style="color: #f87171;"></p>
         </div>
       </div>
-    </div>
-    <div class="cinema-list-heading">
-      <span>🎬 تصفح القائمة الكاملة</span>
-      <span id="total-count-badge">18 عمل سينمائي</span>
-    </div>
-    <div id="posters-carousel-track" class="cinema-track"></div>
-    <div id="pagination-indicators" class="cinema-pagination"></div>
-    <div class="cinema-controls">
-      <button id="prev-slide-btn" type="button" aria-label="السابق">›</button>
-      <span class="cinema-count">تصفح الأعمال</span>
-      <button id="next-slide-btn" type="button" aria-label="التالي">‹</button>
-      <button id="toggle-autoplay-btn" type="button"><span id="autoplay-icon">Ⅱ</span> <span id="autoplay-label">تلقائي</span></button>
+
+      <!-- Admin Dashboard Content -->
+      <div id="falahDashboardView" style="display: none;">
+        <div class="falah-form-grid">
+          <div class="falah-input-group">
+            <label>اسم الفيلم أو المسلسل</label>
+            <input type="text" id="movieTitleInput" placeholder="مثال: Breaking Bad" />
+          </div>
+          <div class="falah-input-group">
+            <label>التصنيف والنوع</label>
+            <input type="text" id="movieCategoryInput" placeholder="مثال: مسلسل • دراما" />
+          </div>
+          <div class="falah-input-group">
+            <label>سنة الإصدار</label>
+            <input type="text" id="movieYearInput" value="2026" />
+          </div>
+          <div class="falah-input-group">
+            <label>التقييم (IMDb)</label>
+            <input type="text" id="movieRatingInput" value="9.0" />
+          </div>
+          <div class="falah-input-group">
+            <label>الجودة</label>
+            <select id="movieQualityInput">
+              <option value="4K UHD">4K UHD</option>
+              <option value="4K HDR">4K HDR</option>
+              <option value="1080p BluRay">1080p BluRay</option>
+              <option value="VIP EXCLUSIVE">VIP EXCLUSIVE</option>
+            </select>
+          </div>
+          <div class="falah-input-group">
+            <label>رابط البوستر المباشر (URL)</label>
+            <input type="url" id="moviePosterInput" placeholder="https://image.tmdb.org/t/p/w780/..." />
+          </div>
+        </div>
+
+        <button class="falah-btn-primary" id="addMovieCloudBtn">+ إضافة وحفظ في السحابة فوراً</button>
+        <p class="falah-status-msg" id="falahCloudStatus"></p>
+
+        <!-- PIN Update -->
+        <div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(0,240,255,0.2); display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap;">
+          <div class="falah-input-group" style="flex: 1; min-width: 180px;">
+            <label>تغيير الرمز السري للوحة (يُحفظ سحابياً)</label>
+            <input type="text" id="newPinInput" placeholder="أدخل الرمز السري الجديد" />
+          </div>
+          <button class="falah-admin-trigger" id="saveNewPinBtn" style="height: 42px;">حفظ الرمز الجديد</button>
+        </div>
+
+        <!-- Current Movies List -->
+        <div class="falah-admin-list" id="falahAdminMoviesList"></div>
+      </div>
     </div>
   </div>
-</section>
-<div id="falah-toast" class="cinema-toast"><span id="falah-toast-msg"></span></div>
+
+  <!-- ===== FIREBASE CLOUD FIRESTORE INTEGRATION ===== -->
 
 </main>
 
@@ -1264,6 +1781,353 @@ function sendSubscriptionOrder(event){
 })();
 </script>
 
-  <script src="falah-cinema.js" defer></script>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import {
+      getFirestore,
+      collection,
+      addDoc,
+      deleteDoc,
+      doc,
+      onSnapshot,
+      query,
+      orderBy,
+      getDoc,
+      setDoc
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCq2LafZv9wFccisSw4T8nx3YEn8TgR20I",
+      authDomain: "falahstor-4b8fd.firebaseapp.com",
+      projectId: "falahstor-4b8fd",
+      storageBucket: "falahstor-4b8fd.firebasestorage.app",
+      messagingSenderId: "173241238458",
+      appId: "1:173241238458:web:06b9ca4e23b6dfde709383",
+      measurementId: "G-TS9780FH8G"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const moviesCol = collection(db, "falah_store_movies");
+    const settingsDocRef = doc(db, "falah_store_settings", "security");
+
+    // 18 High-Quality Default Movies & Series
+    const defaultMovies = [
+      { title: "Dune: Part Two", category: "فيلم • خيال علمي", year: "2024", rating: "8.8", quality: "4K HDR", poster: "https://image.tmdb.org/t/p/w780/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg" },
+      { title: "Oppenheimer", category: "فيلم • دراما وتاريخ", year: "2023", rating: "8.6", quality: "4K UHD", poster: "https://image.tmdb.org/t/p/w780/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg" },
+      { title: "Breaking Bad", category: "مسلسل • جريمة ودراما", year: "2013", rating: "9.5", quality: "4K UHD", poster: "https://image.tmdb.org/t/p/w780/ztkUQFLlC19CCMYHW9o1zWhJRNq.jpg" },
+      { title: "The Dark Knight", category: "فيلم • أكشن وإثارة", year: "2008", rating: "9.0", quality: "4K HDR", poster: "https://image.tmdb.org/t/p/w780/qJ2tW6WMUDux911r6m7haRef0WH.jpg" },
+      { title: "Interstellar", category: "فيلم • مغامرة وفضاء", year: "2014", rating: "8.7", quality: "4K UHD", poster: "https://image.tmdb.org/t/p/w780/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" },
+      { title: "The Last of Us", category: "مسلسل • أكشن ودراما", year: "2025", rating: "8.8", quality: "4K HDR", poster: "https://image.tmdb.org/t/p/w780/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg" },
+      { title: "House of the Dragon", category: "مسلسل • فانتازيا", year: "2024", rating: "8.4", quality: "4K UHD", poster: "https://image.tmdb.org/t/p/w780/t9XkeE7HzOsdQcDDDapDYh8Rrmt.jpg" },
+      { title: "John Wick: Chapter 4", category: "فيلم • أكشن", year: "2023", rating: "7.8", quality: "4K HDR", poster: "https://image.tmdb.org/t/p/w780/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg" },
+      { title: "Game of Thrones", category: "مسلسل • ملحمي", year: "2019", rating: "9.2", quality: "4K UHD", poster: "https://image.tmdb.org/t/p/w780/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg" },
+      { title: "The Batman", category: "فيلم • غموض وأكشن", year: "2022", rating: "7.9", quality: "4K HDR", poster: "https://image.tmdb.org/t/p/w780/74xTEgt7R36Fpooo50r9T25onhq.jpg" },
+      { title: "Peaky Blinders", category: "مسلسل • جريمة", year: "2022", rating: "8.8", quality: "1080p BluRay", poster: "https://image.tmdb.org/t/p/w780/vUUqzWa2LnHIVqkaKVlVGkVcZIW.jpg" },
+      { title: "Avatar: The Way of Water", category: "فيلم • خيال علمي", year: "2022", rating: "7.7", quality: "4K HDR", poster: "https://image.tmdb.org/t/p/w780/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg" },
+      { title: "Stranger Things", category: "مسلسل • غموض ورعب", year: "2025", rating: "8.7", quality: "4K UHD", poster: "https://image.tmdb.org/t/p/w780/49WJfeN0moxb9IPfGn8AIqMGskD.jpg" },
+      { title: "Spider-Man: Across the Spider-Verse", category: "فيلم • أنيميشن", year: "2023", rating: "8.7", quality: "4K HDR", poster: "https://image.tmdb.org/t/p/w780/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg" },
+      { title: "The Boys", category: "مسلسل • أكشن", year: "2024", rating: "8.7", quality: "4K UHD", poster: "https://image.tmdb.org/t/p/w780/2zmTngn1tYC1AvfnrFLhxeD82hz.jpg" },
+      { title: "Gladiator II", category: "فيلم • ملحمي وأكشن", year: "2024", rating: "7.5", quality: "4K UHD", poster: "https://image.tmdb.org/t/p/w780/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg" },
+      { title: "Vikings", category: "مسلسل • تاريخ وأكشن", year: "2020", rating: "8.5", quality: "1080p BluRay", poster: "https://image.tmdb.org/t/p/w780/bQLrHIRNEkE3PdIWQrZHynQZazu.jpg" },
+      { title: "Inception", category: "فيلم • خيال وإثارة", year: "2010", rating: "8.8", quality: "4K UHD", poster: "https://image.tmdb.org/t/p/w780/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg" }
+    ];
+
+    let movies = [];
+    let currentIndex = 0;
+    let currentPin = "1234";
+    const slideDuration = 4500;
+    let progressVal = 0;
+    let timerInterval = null;
+    let isPaused = false;
+
+    const track = document.getElementById("falahTrack");
+    const dotsContainer = document.getElementById("falahDots");
+    const totalCountBadge = document.getElementById("falahTotalCount");
+    const progressFill = document.getElementById("falahProgressFill");
+    const viewport = document.getElementById("falahViewport");
+
+    async function loadSecurityPin() {
+      try {
+        const snap = await getDoc(settingsDocRef);
+        if (snap.exists() && snap.data().pin) {
+          currentPin = snap.data().pin;
+        }
+      } catch (e) {
+        console.warn("Using default PIN");
+      }
+    }
+    loadSecurityPin();
+
+    async function seedInitialMoviesIfEmpty() {
+      for (let i = 0; i < defaultMovies.length; i++) {
+        await addDoc(moviesCol, {
+          ...defaultMovies[i],
+          createdAt: Date.now() + i
+        });
+      }
+    }
+
+    let initialSeedChecked = false;
+    const q = query(moviesCol, orderBy("createdAt", "desc"));
+    onSnapshot(q, async (snapshot) => {
+      if (snapshot.empty && !initialSeedChecked) {
+        initialSeedChecked = true;
+        await seedInitialMoviesIfEmpty();
+        return;
+      }
+      initialSeedChecked = true;
+      movies = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+      totalCountBadge.textContent = `${movies.length} فيلم ومسلسل`;
+      if (currentIndex >= movies.length) currentIndex = 0;
+      renderSlider();
+      renderAdminList();
+    }, (error) => {
+      console.error("Firestore error:", error);
+      movies = defaultMovies;
+      totalCountBadge.textContent = `${movies.length} فيلم ومسلسل`;
+      renderSlider();
+    });
+
+    function getVisibleCardsCount() {
+      const w = window.innerWidth;
+      if (w <= 640) return 2;
+      if (w <= 900) return 3;
+      if (w <= 1200) return 4;
+      return 5;
+    }
+
+    function renderSlider() {
+      track.innerHTML = "";
+      dotsContainer.innerHTML = "";
+
+      movies.forEach((item, idx) => {
+        const card = document.createElement("div");
+        card.className = `falah-slide-card ${idx === currentIndex ? "active-card" : ""}`;
+        card.innerHTML = `
+          <div class="falah-poster-box">
+            <img src="${item.poster}" alt="${item.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x600/05060a/00f0ff?text=FALAH+STORE'">
+            <span class="falah-quality-tag">${item.quality || "4K"}</span>
+            <span class="falah-rating-tag">★ ${item.rating || "8.5"}</span>
+          </div>
+          <div class="falah-card-info">
+            <div class="falah-card-title" title="${item.title}">${item.title}</div>
+            <div class="falah-card-meta">
+              <span>${item.category || "عمل حصري"}</span>
+              <span>${item.year || "2026"}</span>
+            </div>
+          </div>
+        `;
+        track.appendChild(card);
+
+        const dot = document.createElement("button");
+        dot.className = `falah-dot ${idx === currentIndex ? "active" : ""}`;
+        dot.setAttribute("aria-label", `شريحة ${idx + 1}`);
+        dot.addEventListener("click", () => {
+          currentIndex = idx;
+          resetProgress();
+          updateSliderPosition();
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      updateSliderPosition();
+    }
+
+    function updateSliderPosition() {
+      if (!movies.length) return;
+      const visibleCount = getVisibleCardsCount();
+      const maxIndex = Math.max(0, movies.length - visibleCount);
+      const slideStepIndex = Math.min(currentIndex, maxIndex);
+
+      const cards = track.querySelectorAll(".falah-slide-card");
+      if (!cards.length) return;
+
+      const cardWidth = cards[0].offsetWidth;
+      const gap = 18;
+      const offset = slideStepIndex * (cardWidth + gap);
+      track.style.transform = `translateX(${offset}px)`;
+
+      cards.forEach((c, i) => c.classList.toggle("active-card", i === currentIndex));
+      const dots = dotsContainer.querySelectorAll(".falah-dot");
+      dots.forEach((d, i) => d.classList.toggle("active", i === currentIndex));
+    }
+
+    function nextSlide() {
+      if (!movies.length) return;
+      currentIndex = (currentIndex + 1) % movies.length;
+      resetProgress();
+      updateSliderPosition();
+    }
+
+    function prevSlide() {
+      if (!movies.length) return;
+      currentIndex = (currentIndex - 1 + movies.length) % movies.length;
+      resetProgress();
+      updateSliderPosition();
+    }
+
+    function resetProgress() {
+      progressVal = 0;
+      progressFill.style.width = "0%";
+    }
+
+    function startAutoPlay() {
+      clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        if (isPaused || !movies.length) return;
+        progressVal += 100;
+        const pct = Math.min(100, (progressVal / slideDuration) * 100);
+        progressFill.style.width = `${pct}%`;
+        if (progressVal >= slideDuration) {
+          nextSlide();
+        }
+      }, 100);
+    }
+
+    startAutoPlay();
+
+    viewport.addEventListener("mouseenter", () => (isPaused = true));
+    viewport.addEventListener("mouseleave", () => (isPaused = false));
+
+    document.getElementById("falahNextBtn").addEventListener("click", nextSlide);
+    document.getElementById("falahPrevBtn").addEventListener("click", prevSlide);
+
+    let touchStartX = 0;
+    viewport.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      isPaused = true;
+    }, { passive: true });
+
+    viewport.addEventListener("touchend", (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      const diff = touchEndX - touchStartX;
+      if (Math.abs(diff) > 40) {
+        if (diff < 0) nextSlide();
+        else prevSlide();
+      }
+      isPaused = false;
+    }, { passive: true });
+
+    window.addEventListener("resize", updateSliderPosition);
+
+    // ===== ADMIN PANEL LOGIC =====
+    const modal = document.getElementById("falahAdminModal");
+    const pinView = document.getElementById("falahPinView");
+    const dashView = document.getElementById("falahDashboardView");
+    function handlePrivateAdminRoute() {
+      if (window.location.hash === "#falah-admin") {
+        pinView.style.display = "block";
+        dashView.style.display = "none";
+        modal.classList.add("open");
+      } else {
+        modal.classList.remove("open");
+      }
+    }
+    handlePrivateAdminRoute();
+    window.addEventListener("hashchange", handlePrivateAdminRoute);
+
+    const cloudStatus = document.getElementById("falahCloudStatus");
+
+    document.getElementById("openFalahAdminBtn").addEventListener("click", () => {
+      modal.classList.add("open");
+    });
+
+    document.getElementById("closeFalahAdminBtn").addEventListener("click", () => {
+      modal.classList.remove("open");
+    });
+
+    document.getElementById("falahVerifyPinBtn").addEventListener("click", () => {
+      const entered = document.getElementById("falahPinInput").value.trim();
+      if (entered === currentPin) {
+        pinView.style.display = "none";
+        dashView.style.display = "block";
+        document.getElementById("falahPinError").textContent = "";
+      } else {
+        document.getElementById("falahPinError").textContent = "الرمز السري غير صحيح!";
+      }
+    });
+
+    document.getElementById("saveNewPinBtn").addEventListener("click", async () => {
+      const newPin = document.getElementById("newPinInput").value.trim();
+      if (newPin.length < 4) {
+        cloudStatus.textContent = "يجب أن يكون الرمز 4 أرقام أو أحرف على الأقل.";
+        return;
+      }
+      try {
+        await setDoc(settingsDocRef, { pin: newPin });
+        currentPin = newPin;
+        document.getElementById("newPinInput").value = "";
+        cloudStatus.textContent = "تم تحديث الرمز السري وحفظه في السحابة بنجاح!";
+      } catch (e) {
+        cloudStatus.textContent = "حدث خطأ أثناء حفظ الرمز السري.";
+      }
+    });
+
+    document.getElementById("addMovieCloudBtn").addEventListener("click", async () => {
+      const title = document.getElementById("movieTitleInput").value.trim();
+      const category = document.getElementById("movieCategoryInput").value.trim() || "مسلسل • حصري";
+      const year = document.getElementById("movieYearInput").value.trim() || "2026";
+      const rating = document.getElementById("movieRatingInput").value.trim() || "9.0";
+      const quality = document.getElementById("movieQualityInput").value;
+      const poster = document.getElementById("moviePosterInput").value.trim();
+
+      if (!title || !poster) {
+        cloudStatus.textContent = "يرجى إدخال اسم العمل ورابط البوستر.";
+        return;
+      }
+
+      cloudStatus.textContent = "جاري الحفظ في السحابة...";
+      try {
+        await addDoc(moviesCol, {
+          title,
+          category,
+          year,
+          rating,
+          quality,
+          poster,
+          createdAt: Date.now()
+        });
+        document.getElementById("movieTitleInput").value = "";
+        document.getElementById("moviePosterInput").value = "";
+        cloudStatus.textContent = `تمت إضافة "${title}" بنجاح وسيظهر لجميع الزوار فوراً!`;
+      } catch (e) {
+        console.error(e);
+        cloudStatus.textContent = "تعذر الحفظ، تأكد من إعدادات Firestore Rules.";
+      }
+    });
+
+    function renderAdminList() {
+      const listEl = document.getElementById("falahAdminMoviesList");
+      listEl.innerHTML = "";
+      movies.forEach((m) => {
+        const row = document.createElement("div");
+        row.className = "falah-admin-item";
+        row.innerHTML = `
+          <div class="falah-admin-item-info">
+            <img src="${m.poster}" alt="${m.title}" onerror="this.src='https://via.placeholder.com/80x120/05060a/00f0ff?text=Poster'">
+            <div>
+              <div style="font-weight: 800; font-size: 0.95rem;">${m.title}</div>
+              <div style="font-size: 0.78rem; color: #00f0ff;">${m.category} • ${m.quality}</div>
+            </div>
+          </div>
+          ${m.id ? `<button class="falah-del-btn" data-id="${m.id}">حذف</button>` : ""}
+        `;
+        const delBtn = row.querySelector(".falah-del-btn");
+        if (delBtn) {
+          delBtn.addEventListener("click", async () => {
+            try {
+              await deleteDoc(doc(db, "falah_store_movies", m.id));
+              cloudStatus.textContent = `تم حذف "${m.title}" من السحابة.`;
+            } catch (err) {
+              cloudStatus.textContent = "تعذر الحذف، تحقق من الاتصال.";
+            }
+          });
+        }
+        listEl.appendChild(row);
+      });
+    }
+  </script>
 </body>
 </html>
