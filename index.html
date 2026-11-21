@@ -762,6 +762,44 @@ box-shadow:0 10px 30px #078cff85;
 .download-card{min-height:330px;}
 }
 
+
+/* FALAH CINEMA SLIDER - isolated styles */
+#falah-movie-slider-section{direction:rtl;position:relative;margin:35px auto 45px;padding:28px 18px;max-width:1200px;border:1px solid #1b5b91;border-radius:25px;background:radial-gradient(ellipse at 50% 0%,#123b68 0%,#09172b 48%,#050b17 100%);box-shadow:0 18px 55px #0008;overflow:hidden;color:#f4f8ff}
+#falah-movie-slider-section *{box-sizing:border-box}
+#falah-movie-slider-section .cinema-heading{text-align:center;margin-bottom:24px}
+#falah-movie-slider-section .cinema-kicker{color:#4fc3ff;font-size:12px;letter-spacing:4px;font-weight:800}
+#falah-movie-slider-section .cinema-heading h2{font-size:clamp(22px,4vw,32px);color:#fff;margin:7px 0;text-shadow:0 0 22px #078cff70}
+#falah-movie-slider-section .cinema-heading p{color:#9db8d5;margin:0;font-size:14px}
+#falah-movie-slider-section .cinema-stage{display:grid;grid-template-columns:minmax(0,1fr) 230px;gap:24px;align-items:center}
+#falah-movie-slider-section .cinema-feature{min-width:0;display:flex;align-items:center;gap:25px;padding:22px;border:1px solid #2679b8;border-radius:20px;background:linear-gradient(120deg,#0a1b30ed,#102d4be8);box-shadow:0 12px 35px #0008}
+#falah-movie-slider-section .cinema-poster{width:190px;aspect-ratio:2/3;flex:none;object-fit:cover;border-radius:14px;border:1px solid #55baff;box-shadow:0 0 28px #078cff50}
+#falah-movie-slider-section .cinema-info{min-width:0}
+#falah-movie-slider-section .cinema-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+#falah-movie-slider-section .cinema-tag{font-size:11px;padding:4px 10px;border-radius:20px;background:#087cff2b;border:1px solid #299fff80;color:#80d5ff}
+#falah-movie-slider-section .cinema-info h3{font-size:clamp(23px,4vw,35px);line-height:1.35;margin:0 0 8px;color:white}
+#falah-movie-slider-section .cinema-meta{color:#80bce9;font-size:13px;margin-bottom:12px}
+#falah-movie-slider-section .cinema-description{color:#c0d0e2;font-size:14px;line-height:1.9;margin:0}
+#falah-movie-slider-section .cinema-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+#falah-movie-slider-section .cinema-actions button{border:1px solid #299fff;background:linear-gradient(110deg,#0865db,#08aaff);color:#fff;padding:10px 17px;border-radius:10px;font-weight:bold;cursor:pointer}
+#falah-movie-slider-section .cinema-actions button.secondary{background:#0b1b30;border-color:#426b91;color:#d7eaff}
+#falah-movie-slider-section .cinema-side{display:grid;gap:10px}
+#falah-movie-slider-section .cinema-thumb{display:flex;align-items:center;gap:10px;padding:8px;border:1px solid #234c70;border-radius:12px;background:#09182b;color:#e8f4ff;text-align:right;cursor:pointer;transition:.2s}
+#falah-movie-slider-section .cinema-thumb.active{border-color:#36baff;box-shadow:0 0 17px #078cff55;background:#102d4b}
+#falah-movie-slider-section .cinema-thumb img{width:48px;height:68px;object-fit:cover;border-radius:7px}
+#falah-movie-slider-section .cinema-thumb span{font-size:12px;font-weight:bold}
+#falah-movie-slider-section .cinema-controls{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:22px}
+#falah-movie-slider-section .cinema-controls button{width:40px;height:40px;border-radius:50%;border:1px solid #278ed0;background:#0b2540;color:#fff;font-size:20px;cursor:pointer}
+#falah-movie-slider-section .cinema-count{font-size:13px;color:#9fc8eb;min-width:55px;text-align:center}
+@media(max-width:760px){#falah-movie-slider-section{margin:22px 10px;padding:22px 12px}#falah-movie-slider-section .cinema-stage{grid-template-columns:1fr}#falah-movie-slider-section .cinema-feature{gap:15px;padding:13px}#falah-movie-slider-section .cinema-poster{width:36%;max-width:145px}#falah-movie-slider-section .cinema-side{grid-template-columns:repeat(3,minmax(0,1fr))}#falah-movie-slider-section .cinema-thumb{display:block;text-align:center;padding:6px}#falah-movie-slider-section .cinema-thumb img{width:100%;height:95px}#falah-movie-slider-section .cinema-thumb span{display:block;font-size:10px;margin-top:4px}}
+@media(max-width:420px){#falah-movie-slider-section .cinema-feature{align-items:flex-start}#falah-movie-slider-section .cinema-description{font-size:12px}#falah-movie-slider-section .cinema-actions button{padding:8px 11px;font-size:12px}}
+
+
+/* FALAH CINEMA extra controls */
+#falah-movie-slider-section .cinema-dot{width:8px;height:8px;border:0;border-radius:50%;background:#ffffff40;cursor:pointer}
+#falah-movie-slider-section .cinema-dot.active{width:30px;background:#00f0ff;box-shadow:0 0 12px #00f0ff}
+#falah-movie-slider-section #falah-toast{display:none;position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:99999;padding:12px 18px;border:1px solid #00f0ff;border-radius:12px;background:#07111f;color:white;box-shadow:0 0 25px #00f0ff55}
+#falah-movie-slider-section #falah-toast.show{display:block}
+
 </style>
 </head>
 <body>
@@ -949,6 +987,56 @@ box-shadow:0 10px 30px #078cff85;
 </form>
 </div>
 </div>
+
+
+<section id="falah-movie-slider-section" aria-label="أحدث الأفلام والمسلسلات">
+  <div class="cinema-heading">
+    <span class="cinema-kicker">FALAH STORE</span>
+    <h2>أحدث الأفلام والمسلسلات الحصرية</h2>
+    <p>اكتشف أحدث الأعمال السينمائية والمسلسلات</p>
+  </div>
+  <div id="slider-main-frame" class="cinema-main-frame">
+    <div class="cinema-progress"><div id="slide-progress-bar"></div></div>
+    <img id="stage-backdrop-img" class="cinema-backdrop" src="" alt="">
+    <div class="cinema-stage">
+      <div class="cinema-feature">
+        <img id="featured-poster-img" class="cinema-poster" src="" alt="">
+        <div class="cinema-info">
+          <div class="cinema-tags">
+            <span class="cinema-tag" id="featured-type-badge">فيلم</span>
+            <span class="cinema-tag" id="featured-quality-badge">4K HDR</span>
+            <span class="cinema-tag">★ <span id="featured-rating">9.0</span></span>
+          </div>
+          <div class="cinema-meta">
+            <span id="featured-slide-counter">01 / 18</span>
+            <span> • </span><span id="featured-year">2024</span>
+          </div>
+          <h3 id="featured-title">عنوان العمل</h3>
+          <p class="cinema-original" id="featured-subtitle">Original Title</p>
+          <p class="cinema-genre" id="featured-genre">خيال علمي • أكشن</p>
+          <p class="cinema-description" id="featured-desc">وصف العمل السينمائي</p>
+          <div class="cinema-actions">
+            <button id="watch-now-btn" type="button">▶ مشاهدة عبر فلاح ستور</button>
+            <button id="details-btn" class="secondary" type="button">التفاصيل</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cinema-list-heading">
+      <span>🎬 تصفح القائمة الكاملة</span>
+      <span id="total-count-badge">18 عمل سينمائي</span>
+    </div>
+    <div id="posters-carousel-track" class="cinema-track"></div>
+    <div id="pagination-indicators" class="cinema-pagination"></div>
+    <div class="cinema-controls">
+      <button id="prev-slide-btn" type="button" aria-label="السابق">›</button>
+      <span class="cinema-count">تصفح الأعمال</span>
+      <button id="next-slide-btn" type="button" aria-label="التالي">‹</button>
+      <button id="toggle-autoplay-btn" type="button"><span id="autoplay-icon">Ⅱ</span> <span id="autoplay-label">تلقائي</span></button>
+    </div>
+  </div>
+</section>
+<div id="falah-toast" class="cinema-toast"><span id="falah-toast-msg"></span></div>
 
 </main>
 
@@ -1153,5 +1241,6 @@ function sendSubscriptionOrder(event){
 })();
 </script>
 
+  <script src="falah-cinema.js" defer></script>
 </body>
 </html>
