@@ -111,18 +111,52 @@ box-shadow:0 5px 22px #078cff55;
 }
 
 
-/* TV INSTALLATION GUIDE */
-.tv-guide{margin:65px auto;padding:35px 25px;border:1px solid #24517d;border-radius:24px;background:linear-gradient(145deg,#101f36,#071326);box-shadow:0 15px 45px #0006}
-.tv-guide-title{text-align:center;margin-bottom:30px}
-.tv-guide-title h2{color:#58c5ff;font-size:28px}
-.tv-guide-title p{color:#a9bfd8}
-.tv-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.tv-step{padding:25px 18px;text-align:center;border:1px solid #28527e;border-radius:18px;background:#0a172a}
-.tv-step .number{font-size:34px;font-weight:900;color:#38baff}
-.tv-step .symbol{font-size:38px;margin:8px}
-.tv-step h3{color:#fff;font-size:19px}
-.tv-step p{color:#aec2da;font-size:14px;min-height:55px}
-@media(max-width:700px){.tv-steps{grid-template-columns:1fr}.tv-guide{padding:25px 16px}.tv-step p{min-height:0}}
+
+/* FALAH SIDE ROOM - CINEMATIC GUIDE */
+.falah-side-room{max-width:1480px;margin:65px auto;padding:0 20px;color:#f8fafc;font-family:Arial,sans-serif}
+.falah-side-room *{box-sizing:border-box}
+.falah-side-room .sr-panel{background:linear-gradient(145deg,rgba(15,23,42,.92),rgba(6,10,19,.97));border:1px solid rgba(56,189,248,.2);border-radius:26px;box-shadow:0 20px 50px #0009;overflow:hidden}
+.falah-side-room .sr-hero{padding:42px;background:radial-gradient(circle at 15% 15%,#087cff30,transparent 45%),linear-gradient(140deg,#101f36,#030509)}
+.falah-side-room .sr-kicker{display:inline-block;color:#38c5ff;background:#078cff20;border:1px solid #38bdf855;border-radius:30px;padding:6px 14px;font-size:13px}
+.falah-side-room h2,.falah-side-room h3{color:#fff}
+.falah-side-room .sr-hero h2{font-size:clamp(27px,4vw,43px);line-height:1.5;margin:16px 0}
+.falah-side-room .sr-hero h2 span{color:#38bdf8}
+.falah-side-room p{color:#b8c9dc;line-height:1.9}
+.falah-side-room .sr-nav{display:flex;gap:10px;flex-wrap:wrap;padding:16px;background:#060a13;border-bottom:1px solid #ffffff15}
+.falah-side-room .sr-nav a{color:#d9eaff;text-decoration:none;background:#10233c;border:1px solid #24517d;padding:10px 17px;border-radius:12px;font-size:13px;font-weight:bold}
+.falah-side-room .sr-section{padding:32px;margin-top:25px}
+.falah-side-room .sr-heading{padding-bottom:20px;margin-bottom:25px;border-bottom:1px solid #ffffff18}
+.falah-side-room .sr-heading h2{font-size:clamp(22px,3vw,32px);margin:10px 0}
+.falah-side-room .sr-layout{display:grid;grid-template-columns:5fr 7fr;gap:25px;align-items:stretch}
+.falah-side-room .sr-photo{position:relative;min-height:430px;border-radius:22px;overflow:hidden;border:1px solid #38bdf855;box-shadow:0 20px 45px #0009}
+.falah-side-room .sr-photo img{position:absolute;width:100%;height:100%;inset:0;object-fit:cover;transition:transform .7s}
+.falah-side-room .sr-photo:hover img{transform:scale(1.04)}
+.falah-side-room .sr-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,#030915ed)}
+.falah-side-room .sr-photo-info{position:absolute;z-index:2;bottom:0;padding:22px}
+.falah-side-room .sr-photo-info h3{font-size:19px;margin:0}
+.falah-side-room .sr-photo-info p{font-size:13px;margin-bottom:0}
+.falah-side-room .sr-steps{display:flex;flex-direction:column;gap:12px}
+.falah-side-room .sr-step{display:flex;align-items:flex-start;gap:16px;padding:17px;border-radius:17px;background:linear-gradient(130deg,#101f36,#080f1d);border:1px solid #ffffff12;transition:.3s}
+.falah-side-room .sr-step:hover{transform:translateY(-3px);border-color:#38bdf880;box-shadow:0 10px 28px #078cff25}
+.falah-side-room .sr-number{flex-shrink:0;width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:#087cff25;border:1px solid #38bdf855;color:#fff;font-size:20px;font-weight:900}
+.falah-side-room .sr-step h3{font-size:16px;margin:0 0 5px}
+.falah-side-room .sr-step p{font-size:13px;margin:0}
+.falah-side-room .sr-note{margin-top:20px;padding:18px;border:1px solid #38bdf833;background:#078cff12;border-radius:16px}
+.falah-side-room .sr-note strong{color:#38bdf8}
+.falah-side-room .sr-mobile .sr-layout{grid-template-columns:7fr 5fr}
+.falah-side-room .sr-mobile .sr-photo{order:2}
+.falah-side-room .sr-mobile .sr-steps{order:1}
+.falah-side-room .sr-reveal{animation:srAppear .7s ease both}
+@keyframes srAppear{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:800px){
+.falah-side-room{padding:0 12px;margin:40px auto}
+.falah-side-room .sr-hero{padding:25px 20px}
+.falah-side-room .sr-section{padding:20px 15px}
+.falah-side-room .sr-layout,.falah-side-room .sr-mobile .sr-layout{grid-template-columns:1fr}
+.falah-side-room .sr-photo{min-height:280px}
+.falah-side-room .sr-mobile .sr-photo,.falah-side-room .sr-mobile .sr-steps{order:initial}
+.falah-side-room .sr-step{padding:14px}
+}
 
 
 /* BLUE APP NAME BARS */
@@ -1580,34 +1614,63 @@ box-shadow:0 10px 30px #078cff85;
 
 </main>
 
-<section class="container tv-guide" id="tv-guide">
-<div class="tv-guide-title">
-<h2>طريقة تثبيت البرامج على الشاشات</h2>
-<p>اتبع الخطوات التالية لتثبيت برامج فلاح ستور بسهولة</p>
-</div>
-<div class="tv-steps">
-<div class="tv-step">
-<div class="number">01</div>
 
-<h3>تنزيل تطبيق Downloader</h3>
-<p>نزّل وثبّت تطبيق Downloader على الشاشة من متجر التطبيقات.</p>
-</div>
-<div class="tv-step">
-<div class="number">02</div>
+<section class="falah-side-room" id="tv-guide">
+  <div class="sr-panel">
+    <div class="sr-hero">
+      <span class="sr-kicker">FALAH STORE | INSTALLATION GUIDE</span>
+      <h2>دليل تثبيت برامج <span>FALAH STORE</span></h2>
+      <p>خطوات سهلة لتثبيت برامجنا على الشاشات الذكية والهواتف.</p>
+      <nav class="sr-nav">
+        <a href="#smart-tv-section">📺 الشاشات الذكية</a>
+        <a href="#mobile-section">📱 الهواتف</a>
+      </nav>
+    </div>
+  </div>
 
-<h3>كتابة كود التنزيل</h3>
-<p>افتح تطبيق Downloader واكتب كود البرنامج الذي تريد تنزيله.</p>
-</div>
-<div class="tv-step">
-<div class="number">03</div>
+  <section class="sr-panel sr-section" id="smart-tv-section">
+    <div class="sr-heading">
+      <span class="sr-kicker">SMART TV</span>
+      <h2>📺 تثبيت البرامج على الشاشات</h2>
+      <p>اتبع الخطوات لتثبيت البرنامج على شاشتك.</p>
+    </div>
+    <div class="sr-layout">
+      <div class="sr-photo">
+        <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=1200&q=85" alt="تلفزيون ذكي" loading="lazy">
+        <div class="sr-photo-info"><h3>المشاهدة على الشاشة الكبيرة</h3><p>تجربة ترفيهية على شاشتك الذكية.</p></div>
+      </div>
+      <div class="sr-steps">
+        <article class="sr-step"><div class="sr-number">01</div><div><h3>تحميل Downloader</h3><p>افتح متجر التطبيقات وابحث عن Downloader وثبّته.</p></div></article>
+        <article class="sr-step"><div class="sr-number">02</div><div><h3>فتح التطبيق</h3><p>افتح Downloader واسمح بالأذونات المطلوبة.</p></div></article>
+        <article class="sr-step"><div class="sr-number">03</div><div><h3>إدخال كود التحميل</h3><p>استخدم كود البرنامج الموجود في صفحة البرنامج بموقع فلاح ستور.</p></div></article>
+        <article class="sr-step"><div class="sr-number">04</div><div><h3>تحميل البرنامج</h3><p>ابدأ التحميل وانتظر حتى يكتمل تنزيل الملف.</p></div></article>
+        <article class="sr-step"><div class="sr-number">05</div><div><h3>تثبيت البرنامج</h3><p>افتح الملف واتبع تعليمات التثبيت على الشاشة.</p></div></article>
+      </div>
+    </div>
+    <div class="sr-note"><strong>ملاحظة:</strong> كود Downloader ورابط البرنامج موجودان داخل صفحة كل برنامج في فلاح ستور.</div>
+  </section>
 
-<h3>تثبيت البرنامج</h3>
-<p>بعد اكتمال التنزيل، افتح الملف من مدير الملفات وثبّت البرنامج.</p>
-</div>
-</div>
+  <section class="sr-panel sr-section sr-mobile" id="mobile-section">
+    <div class="sr-heading">
+      <span class="sr-kicker">SMARTPHONES</span>
+      <h2>📱 تثبيت البرامج على الهواتف</h2>
+      <p>حمّل تطبيقك وثبّته على هاتفك بخطوات بسيطة.</p>
+    </div>
+    <div class="sr-layout">
+      <div class="sr-steps">
+        <article class="sr-step"><div class="sr-number">01</div><div><h3>الدخول إلى الموقع</h3><p>افتح موقع FALAH STORE وانتقل إلى صفحة البرنامج.</p></div></article>
+        <article class="sr-step"><div class="sr-number">02</div><div><h3>تحميل التطبيق</h3><p>اضغط رابط تحميل APK الموجود في صفحة البرنامج.</p></div></article>
+        <article class="sr-step"><div class="sr-number">03</div><div><h3>فتح الملف</h3><p>بعد اكتمال التنزيل افتح ملف APK من التنزيلات.</p></div></article>
+        <article class="sr-step"><div class="sr-number">04</div><div><h3>إكمال التثبيت</h3><p>اسمح بالتثبيت من هذا المصدر إذا طلب Android ذلك.</p></div></article>
+        <article class="sr-step"><div class="sr-number">05</div><div><h3>تشغيل التطبيق</h3><p>افتح البرنامج بعد اكتمال التثبيت واستمتع بالخدمة.</p></div></article>
+      </div>
+      <div class="sr-photo">
+        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=85" alt="هاتف ذكي" loading="lazy">
+        <div class="sr-photo-info"><h3>برامجك على هاتفك</h3><p>تثبيت سريع ومباشر.</p></div>
+      </div>
+    </div>
+  </section>
 </section>
-
-
 
 <section class="container info-section" id="features">
 <h2 class="info-heading">مميزات فلاح ستور</h2>
