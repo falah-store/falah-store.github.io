@@ -982,6 +982,52 @@ box-shadow:0 10px 30px #078cff85;
     margin:0 auto;
 }
 
+
+/* FALAH STORE - MOBILE FIX */
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  overflow-x: clip;
+}
+img, video, iframe {
+  max-width: 100%;
+}
+@media (max-width: 600px) {
+  * {
+    min-width: 0;
+  }
+  header, main, section, footer, .container,
+  .premium-hero, .info-section,
+  #falah-movie-slider-section {
+    max-width: 100%;
+  }
+  .whatsapp-float {
+    position: fixed !important;
+    left: 14px !important;
+    right: auto !important;
+    bottom: calc(14px + env(safe-area-inset-bottom)) !important;
+    z-index: 999999 !important;
+  }
+  .whatsapp-icon {
+    width: 60px;
+    height: 60px;
+  }
+  .whatsapp-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+  .whatsapp-label {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
+
 </style>
   <style>
 
